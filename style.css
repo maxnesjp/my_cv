@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Antonio:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+* {
+  /* if we add a border or padding to an element, it wont affect the width of the element  */
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f23e30;
+  color: #f2c424;
+  font-family: 'Muli', sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-family: 'Dancing Script', sans-serif;
+  font-size: 4.5rem;
+  margin: 0;
+}
+
+a:hover {
+  color: #a34a28;
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 3.5rem;
+    display: inline;
+  }
+  body {
+    text-align: center;
+  }
+}
+
+/* --------------------------------HEADER-------------------------------- */
+.header {
+  margin-bottom: 0;
+}
+nav {
+  background-color: #fc5f26;
+  transition: border-radius 0.3s ease;
+  position: relative;
+}
+.hello-world {
+  color: #fff;
+  margin: 0;
+  position: absolute;
+  left: 30px;
+  top: 40px;
+  transition: position 2s ease;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+nav ul li {
+}
+nav ul a:hover {
+  transition: color 0.14s ease;
+}
+nav ul a {
+  color: #000;
+  border-bottom: 0.2rem dashed rgba(0, 0, 0, 0.1);
+  border-width: 1px;
+  width: 4%;
+  font-size: 1.5rem;
+  text-decoration: none;
+}
+nav .icon {
+  background-color: #fc5f26;
+  border: 0;
+}
+@media (min-width: 801px) {
+  .hello-world {
+    font-size: 1.6rem;
+    margin-bottom: 2px;
+  }
+}
+
+@media (max-width: 800px) {
+  nav {
+    padding: 20px;
+    margin-bottom: 2%;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 0.6s linear;
+  }
+  .hello-world {
+    width: 150px;
+    text-align: left;
+    top: 55px;
+    transition: position 2s ease;
+  }
+
+  nav.active {
+    width: 450px;
+  }
+
+  nav ul {
+    display: flex;
+
+    padding: 0;
+    margin: 0;
+    width: 0;
+    transition: width 0.6s linear;
+  }
+
+  nav.active ul {
+    width: 100%;
+  }
+
+  nav ul li {
+    transform: rotateY(0deg);
+    opacity: 0;
+    transition: transform 0.6s linear, opacity 0.6s linear;
+  }
+  nav ul a {
+    position: relative;
+    margin: 0 10px;
+    pointer-events: none;
+  }
+
+  nav.active ul a {
+    pointer-events: initial;
+  }
+  nav.active ul li {
+    opacity: 1;
+    transform: rotateY(360deg);
+  }
+  .icon {
+    background-color: inherit;
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+    position: relative;
+    height: 30px;
+    width: 30px;
+  }
+
+  .icon:focus {
+    outline: 0;
+  }
+
+  .icon .line {
+    background-color: #f7f7f7;
+    height: 2px;
+    width: 20px;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    transition: transform 0.6s linear;
+  }
+
+  .icon .line2 {
+    top: auto;
+    bottom: 10px;
+  }
+
+  nav.active .icon .line1 {
+    transform: rotate(-765deg) translateY(5.5px);
+  }
+
+  nav.active .icon .line2 {
+    transform: rotate(765deg) translateY(-5.5px);
+  }
+}
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------INTRO-------------------------------- */
+
+.intro-container {
+  padding: 15px 5px;
+  margin: 0 30px;
+  border: 3px solid #0e0220;
+  border-left: none;
+  border-right: none;
+}
+.intro {
+  padding: 0px 5%;
+  position: relative;
+}
+
+.myphoto {
+  width: 50%;
+  transition: width 0.3 ease-in-out;
+}
+
+.intro .text {
+  transition: position 0.4s ease;
+}
+
+.templeuni {
+  color: #cf0000;
+}
+
+.full-stack {
+  color: #00adb5;
+}
+
+@media (min-width: 801px) and (max-width: 1200px) {
+  .myphoto {
+    width: 60%;
+    transition: width 0.3 ease-in-out;
+  }
+
+  .intro-container {
+    height: 80vh;
+  }
+  .intro .text {
+    font-family: 'Merriweather', serif;
+    font-size: 1.2rem;
+    background-color: rgba(51, 170, 51, 0.1);
+    border-radius: 30px;
+    position: absolute;
+    left: 50%;
+    top: 86px;
+  }
+}
+
+@media (max-width: 800px) {
+  .myphoto {
+    width: 100%;
+  }
+}
+
+.container {
+  background-color: steelblue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  margin: 10px;
+  border-radius: 10px;
+  /* 4px - offset, 5px - blur, rgba - color */
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  /* 0 is default, 100px - move right by 100px*/
+  transform: translateX(400%);
+  transition: transform 0.4s ease;
+}
+
+.container:nth-of-type(even) {
+  /* even boxes - every other one */
+  transform: translateX(-400%);
+}
+
+.container.show {
+  /* move to the default position (center of the screen) */
+  transform: translateX(0);
+}
+
+.child-container {
+  visibility: hidden;
+  transform: translateX(1200%);
+  transition: transform 1.8s ease, visibility ease;
+}
+
+.child-container:nth-of-type(even) {
+  /* even boxes - every other one */
+  /* transition-delay: 1s; */
+  transform: translateX(-1200%);
+}
+
+.child-container.show {
+  /* move to the default position (center of the screen) */
+  /* transition-delay: 1s; */
+  visibility: visible;
+  transform: translateX(0);
+}
+
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------HEADER-------------------------------- */
+
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------HEADER-------------------------------- */
+
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------HEADER-------------------------------- */
+
+/* ---------------------------------------------------------------- */
