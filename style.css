@@ -238,9 +238,10 @@ nav .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  margin-top: 10px;
+  /* width: 100vw; */
   height: fit-content;
-  margin: 10px;
+  /* margin: 10px; */
   border-radius: 10px;
   /* 4px - offset, 5px - blur, rgba - color */
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
