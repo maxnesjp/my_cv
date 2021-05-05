@@ -11,12 +11,14 @@ body {
   background-color: #f23e30;
   color: #f2c424;
   font-family: 'Muli', sans-serif;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   margin: 0;
-  overflow-x: hidden;
 }
-
+/* body,
+html {
+  overflow-x: hidden;
+} */
 h1 {
   font-family: 'Dancing Script', sans-serif;
   font-size: 4.5rem;
@@ -290,6 +292,19 @@ nav .icon {
 
 /* ---------------------------------------------------------------- */
 
-/* --------------------------------HEADER-------------------------------- */
-
+/* --------------------------------FOOTER-------------------------------- */
+.footer {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 12px 35%;
+}
+.footer .icon {
+  color: blue;
+  margin: 50px 0;
+}
+.social-media-a i:hover {
+  color: #f2c424;
+}
 /* ---------------------------------------------------------------- */
