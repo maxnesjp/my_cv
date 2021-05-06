@@ -16,10 +16,10 @@ body {
   /* height: 100vh; */
   width: 100%;
 }
-/* body,
+body,
 html {
   overflow-x: hidden;
-} */
+}
 h1 {
   font-family: 'Dancing Script', sans-serif;
   font-size: 4.5rem;
@@ -111,7 +111,6 @@ nav .icon {
 
   nav ul {
     display: flex;
-
     padding: 0;
     margin: 0;
     width: 0;
@@ -183,7 +182,8 @@ nav .icon {
 
 .intro-container {
   padding: 15px 5px;
-  margin: 0 30px;
+  width: 90%;
+  margin: 0 auto;
   border: 3px solid #0e0220;
   border-left: none;
   border-right: none;
