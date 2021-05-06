@@ -49,10 +49,6 @@ boxes.forEach((box) => {
     listOfChildren.push(eachChild)
   }
   childrenOfBoxes.push(listOfChildren)
-  // children.forEach((child, idx) => {
-  //   console.log(child)
-  // })
-  var person = { firstName: 'John', lastName: 'Doe', age: 50, eyeColor: 'blue' }
 })
 // console.log(childrenOfBoxes)
 // console.log(childrenOfBoxes[0][0].state)
@@ -63,7 +59,7 @@ setTimeout(() => {
 
 function checkBoxes() {
   // when do we want the content to come in?
-  const triggerBottom = (window.innerHeight / 5) * 4
+  const triggerBottom = (window.innerHeight / 4) * 3
   boxes.forEach((box, index) => {
     // get the value of the top boundary of each box
     const boxTop = box.getBoundingClientRect().top
@@ -106,5 +102,16 @@ function checkBoxes() {
 function showChildren(child) {
   child.classList.add('show')
 }
+
+const arrowDownButton = document.getElementById('arrow-down')
+const containers = document.querySelectorAll('.container')
+arrowDownButton.addEventListener('click', () => {
+  for (var i = 0; i < containers.length; i++) {
+    const currentContainer = containers[i]
+    if (!currentContainer.classList.contains('active')) {
+      $('html').scrollTop(currentContainer)
+    }
+  }
+})
 
 // ------------------------------------------------------------------
