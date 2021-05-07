@@ -167,7 +167,7 @@ nav .icon {
   }
 
   nav.active {
-    width: 90%;
+    width: 95%;
   }
 
   nav ul {
@@ -175,6 +175,7 @@ nav .icon {
     padding: 0;
     margin: 0;
     width: 0;
+    justify-content: space-between;
     transition: width 0.6s linear;
   }
 
