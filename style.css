@@ -6,7 +6,9 @@
   /* if we add a border or padding to an element, it wont affect the width of the element  */
   box-sizing: border-box;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   background-color: #f23e30;
   color: #f2c424;
@@ -45,7 +47,51 @@ a:hover {
   z-index: 100;
   cursor: pointer;
 }
-
+#arrow-down:active {
+  transform: scale(0.98);
+}
+.animated {
+  -webkit-animation-duration: 1.4s;
+  animation-duration: 1.4s;
+  animation-delay: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-timing-function: linear;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+@-webkit-keyframes bounce {
+  0%,
+  100% {
+    -webkit-transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-10px);
+  }
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.bounce {
+  -webkit-animation-name: bounce;
+  animation-name: bounce;
+}
+#animated-example {
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  position: relative;
+  top: 100px;
+  left: 100px;
+  border-radius: 50%;
+}
 @media (max-width: 800px) {
   h1 {
     font-size: 3.5rem;
@@ -121,7 +167,7 @@ nav .icon {
   }
 
   nav.active {
-    width: 450px;
+    width: 80%;
   }
 
   nav ul {
@@ -143,7 +189,8 @@ nav .icon {
   }
   nav ul a {
     position: relative;
-    margin: 0 7px;
+    margin: 0;
+    width: 2%;
     font-size: 1.2rem;
     pointer-events: none;
   }
@@ -268,15 +315,15 @@ nav .icon {
   /* 0 is default, 100px - move right by 100px*/
   transform: translateX(400%);
   transition: transform 0.4s ease;
+  z-index: 100;
 }
 
 .container:nth-of-type(even) {
   /* even boxes - every other one */
   transform: translateX(-400%);
 }
-
+/* move to the default position (center of the screen)  */
 .container.show {
-  /* move to the default position (center of the screen) */
   transform: translateX(0);
 }
 

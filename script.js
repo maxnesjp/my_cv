@@ -1,7 +1,6 @@
 // ---------------------------------HEADER---------------------------------
 const toggle = document.getElementById('toggle')
 const nav = document.getElementById('nav')
-// const helloWorld = document.getElementByClassName('hello-world')
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active')
   if (nav.classList.contains('active')) {
@@ -18,13 +17,6 @@ toggle.addEventListener('click', () => {
       removeElement('hello-world')
     }, 550)
   }
-  //   if (helloWorld.length) {
-  //     helloWorld.setAttribute('display', 'none')
-  //   } else {
-  //     helloWorld = document.createElement('h3')
-  //     helloWorld.classList.add('hello-world')
-  //     nav.appendChild(helloWorld)
-  //   }
 })
 function removeElement(className) {
   var elem = document.querySelector(`.${className}`)
@@ -61,10 +53,12 @@ function checkBoxes() {
   // when do we want the content to come in?
   const triggerBottom = (window.innerHeight / 4) * 3
   boxes.forEach((box, index) => {
+    setIndexes()
     // get the value of the top boundary of each box
     const boxTop = box.getBoundingClientRect().top
     if (boxTop < triggerBottom) {
       box.classList.add('show')
+      setIndexes()
       const children = box.children[0].children
       setTimeout(() => {
         for (var i = 0; i < childrenOfBoxes[index].length; i++) {
@@ -81,18 +75,10 @@ function checkBoxes() {
       for (var i = 0; i < childrenOfBoxes[index].length; i++) {
         if (childrenOfBoxes[index][i].state === 1) {
           childrenOfBoxes[index][i].state = 0
-          console.log(childrenOfBoxes[index][i].state)
-          // children[currentIndex].style.visibility = 'hidden'
           const currentIndex = i
           const children = box.children[0].children
-          console.log(children[currentIndex], 'removed')
 
           children[currentIndex].classList.remove('show')
-          // if (currentIndex % 2 === 0) {
-          //   children[currentIndex].style.transform = 'translateX(-800%)'
-          // } else {
-          //   children[currentIndex].style.transform = 'translateX(800%)'
-          // }
         }
       }
     }
@@ -103,13 +89,58 @@ function showChildren(child) {
   child.classList.add('show')
 }
 
-const arrowDownButton = document.getElementById('arrow-down')
-const containers = document.querySelectorAll('.container')
-arrowDownButton.addEventListener('click', () => {
-  for (var i = 0; i < containers.length; i++) {
-    const currentContainer = containers[i]
-    if (!currentContainer.classList.contains('active')) {
-      $('html').scrollTop(currentContainer)
+const arrowDown = document.getElementById('arrow-down-a')
+const statesOfContainers = []
+const listOfStates = []
+
+// Set Index1 for containers that are shown to the user
+setTimeout(() => {
+  setIndexes()
+}, 300)
+
+function setIndexes() {
+  listOfStates.length = 0
+  for (let i = 0; i < boxes.length; i++) {
+    if (boxes[i].classList.contains('show')) {
+      boxes[i].style.transform = 'translateX(0)'
+
+      listOfStates.push({
+        currentIndex: 1,
+      })
+    } else {
+      listOfStates.push({
+        currentIndex: 0,
+      })
+    }
+  }
+  // setTimeout(() => {
+  //   for (let i = 0; i < boxes.length; i++) {
+  //     boxes[i].style.transform = ''
+  //   }
+  // }, 100)
+  // console.log(listOfStates)
+}
+
+// set Container Name (class) as their id
+for (let j = 0; j < boxes.length; j++) {
+  let className = boxes[j].getAttribute('class').split(' ')[1]
+  boxes[j].setAttribute('id', className)
+}
+
+arrowDown.addEventListener('click', () => {
+  for (let j = 0; j < listOfStates.length; j++) {
+    console.log('hi')
+    const transformProperty = boxes[j].style.transform
+    console.log(transformProperty)
+    let className = boxes[j].getAttribute('class').split(' ')[1]
+    setIndexes()
+    var currentContainer = listOfStates[j]
+    if (currentContainer.currentIndex === 0) {
+      console.log('0')
+      let hrefValue = `#${className}`
+      arrowDown.setAttribute('href', hrefValue)
+      console.log(hrefValue)
+      break
     }
   }
 })
