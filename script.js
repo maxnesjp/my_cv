@@ -4,17 +4,17 @@ const nav = document.getElementById('nav')
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active')
   if (nav.classList.contains('active')) {
-    setTimeout(() => {
-      const newHelloWorld = document.createElement('h3')
-      newHelloWorld.innerText = 'Hello, World'
-      newHelloWorld.classList.add('hello-world')
-      nav.appendChild(newHelloWorld)
-      nav.style.borderBottomRightRadius = '0px'
-    }, 550)
+    // setTimeout(() => {
+    //   const newHelloWorld = document.createElement('h3')
+    //   newHelloWorld.innerText = 'Hello, World'
+    //   newHelloWorld.classList.add('hello-world')
+    //   nav.appendChild(newHelloWorld)
+    //   nav.style.borderBottomRightRadius = '0px'
+    // }, 550)
   } else {
     setTimeout(() => {
       nav.style.borderBottomRightRadius = '30px'
-      removeElement('hello-world')
+      // removeElement('hello-world')
     }, 550)
   }
 })
@@ -41,14 +41,6 @@ boxes.forEach((box) => {
   }
   childrenOfBoxes.push(listOfChildren)
 })
-// console.log(childrenOfBoxes)
-// console.log(childrenOfBoxes[0][0].state)
-// boxes.forEach((box) => {
-//   box.classList.add('show')
-// })
-// boxes.forEach((box) => {
-//   box.classList.remove('show')
-// })
 
 window.addEventListener('scroll', checkBoxes)
 window.scroll({
@@ -56,24 +48,9 @@ window.scroll({
   left: 0,
   behavior: 'smooth',
 })
-window.onload = onloadf
-
 checkBoxes()
-
-function onloadf() {
-  // window.scrollTo(0, document.body.scrollHeight)
-  // window.scrollTo(0, document.body.scrollHeight)
-  // setTimeout(() => {}, 200)
-  // if ('scrollRestoration' in history) {
-  //   history.scrollRestoration = 'manual'
-  // }
-  // window.scrollTo(0, 0)
-
-  console.log('success')
-}
-
 function checkBoxes() {
-  console.log('scroll')
+  // console.log('scroll')
 
   // when do we want the content to come in?
   const triggerBottom = (window.innerHeight / 4) * 3
@@ -117,7 +94,7 @@ function setCorrectHref() {
     if (!boxes[i].classList.contains('show')) {
       const classesOfBox = boxes[i]
       const currentId = $(boxes[i]).attr('id')
-      console.log(currentId)
+      // console.log(currentId)
       // window.open(arrowDown.href, '_blank')
       arrowDown.setAttribute('href', `#${currentId}`)
       break
@@ -178,3 +155,44 @@ $(document).ready(function () {
 // })
 
 // ------------------------------------------------------------------
+
+// ---------------------------------AUTOBIOGRAPHY---------------------------------
+/* Helper function */
+function download_file(fileURL, fileName) {
+  // for non-IE
+  if (!window.ActiveXObject) {
+    var save = document.createElement('a')
+    save.href = fileURL
+    save.target = '_blank'
+    var filename = fileURL.substring(fileURL.lastIndexOf('/') + 1)
+    save.download = fileName || filename
+    if (
+      navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) &&
+      navigator.userAgent.search('Chrome') < 0
+    ) {
+      document.location = save.href
+      // window event not working here
+    } else {
+      var evt = new MouseEvent('click', {
+        view: window,
+        bubbles: true,
+        cancelable: false,
+      })
+      save.dispatchEvent(evt)
+      ;(window.URL || window.webkitURL).revokeObjectURL(save.href)
+    }
+  }
+
+  // for IE < 11
+  else if (!!window.ActiveXObject && document.execCommand) {
+    var _window = window.open(fileURL, '_blank')
+    _window.document.close()
+    _window.document.execCommand('SaveAs', true, fileName || fileURL)
+    _window.close()
+  }
+}
+/*--------------------------------------------------------*/
+const resumeButton = document.getElementById('resume-button')
+resumeButton.addEventListener('click', () => {
+  download_file('resume_Maxim_Nesterov.pdf', 'resume') //call function
+})

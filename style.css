@@ -254,15 +254,17 @@ nav .icon {
 }
 
 .intro .text {
-  transition: position 0.4s ease;
+  transition: position 0.4s ease, font-size 0.5s ease;
 }
 
 .templeuni {
   color: #cf0000;
+  white-space: nowrap;
 }
 
 .full-stack {
   color: #00adb5;
+  white-space: nowrap;
 }
 .myphoto {
   width: 100%;
@@ -284,6 +286,20 @@ nav .icon {
     position: absolute;
     left: 50%;
     top: 30%;
+  }
+}
+
+@media (min-width: 1450px) {
+  .intro-container .intro .text {
+    font-size: 2rem;
+    top: 18%;
+  }
+}
+
+@media (min-width: 1800px) {
+  .intro-container .intro .text {
+    font-size: 2.3rem;
+    top: 23%;
   }
 }
 
@@ -361,12 +377,10 @@ nav .icon {
   top: 0%;
   left: -5%;
   z-index: -100;
-}
-.description {
   position: absolute;
 }
 
-.description h2 {
+.skills .description h2 {
   font-size: 7rem;
   color: #fa9905;
   position: absolute;
@@ -377,10 +391,10 @@ nav .icon {
   align-items: center; */
   opacity: 0.4;
 }
-.description h2::-moz-selection {
+.skills .description h2::-moz-selection {
   background: transparent;
 }
-.description h2::selection {
+.skills .description h2::selection {
   background: transparent;
 }
 .skill {
@@ -448,6 +462,53 @@ nav .icon {
   width: 100%;
   height: 600px;
 }
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------AUTOBIOGRAPHY-------------------------------- */
+.autobiography-container {
+  height: fit-content;
+}
+.autobiography {
+  position: relative;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.autobiography-container .autobiography .text {
+  text-align: left;
+  padding: 2% 0 3% 0;
+}
+
+.btn {
+  box-shadow: inset 0px 1px 0px 0px #3dc21b;
+  background-color: #44c767;
+  border-radius: 6px;
+  border: 1px solid #1932ab;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 19px;
+  padding: 8px 47px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+.btn:hover {
+  background-color: #5cbf2a;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------DEMO-------------------------------- */
+
 /* ---------------------------------------------------------------- */
 
 /* --------------------------------FOOTER-------------------------------- */
