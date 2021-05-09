@@ -50,6 +50,9 @@ a:hover {
 #arrow-down:active {
   transform: scale(0.98);
 }
+.nowrap {
+  white-space: nowrap;
+}
 .animated {
   -webkit-animation-duration: 1.4s;
   animation-duration: 1.4s;
@@ -398,7 +401,7 @@ nav .icon {
   background: transparent;
 }
 .skill {
-  margin: 3% 0;
+  margin: 2% 0;
   padding-bottom: 3%;
   min-width: 100%;
   /* width: 40%; */
@@ -410,7 +413,9 @@ nav .icon {
   margin: 0 5px;
   color: #f23e50;
 }
-
+.skills h2 .nowrap {
+  color: #ff6701;
+}
 .one-line-sentence {
   color: #ff6701;
   /* line-height: 1.5; */
@@ -471,6 +476,7 @@ nav .icon {
 .autobiography {
   position: relative;
   text-align: left;
+  margin-bottom: 2%;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -507,8 +513,21 @@ nav .icon {
 
 /* ---------------------------------------------------------------- */
 
-/* --------------------------------DEMO-------------------------------- */
-
+/* --------------------------------CYCLING-------------------------------- */
+.cycling-container {
+  height: fit-content;
+}
+.cycling {
+  position: relative;
+  text-align: left;
+  margin-bottom: 2%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 /* ---------------------------------------------------------------- */
 
 /* --------------------------------FOOTER-------------------------------- */
@@ -517,13 +536,22 @@ nav .icon {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 12px 25%;
+  margin: 5% 25%;
+}
+
+@media (max-width: 800px) {
+  .footer {
+    margin: 6% 8%;
+  }
 }
 .footer .awesome {
-  color: blue;
-  margin: 50px 0;
+  color: #44c767;
 }
-.social-media-a i:hover {
-  color: #f2c424;
+.footer .awesome:hover {
+  color: #5cbf2a;
 }
+.footer .awesome:active {
+  transform: scale(0.98);
+}
+
 /* ---------------------------------------------------------------- */
