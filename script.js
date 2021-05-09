@@ -82,7 +82,7 @@ function checkBoxes() {
     const boxTop = box.getBoundingClientRect().top
     if (boxTop < triggerBottom) {
       box.classList.add('show')
-      box.style.transform = 'none'
+      // box.style.transform = 'none'
       setCorrectHref()
       const children = box.children[0].children
       setTimeout(() => {
@@ -162,7 +162,7 @@ $(document).ready(function () {
         {
           scrollTop: $(hash).offset().top,
         },
-        800,
+        2,
         function () {
           // Add hash (#) to URL when done scrolling (default click behavior)
           window.location.hash = hash
