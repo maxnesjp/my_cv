@@ -1,4 +1,18 @@
-for (let m = 0; m < containers.length; m++) {
-    let className = containers[m].getAttribute('class').split(' ')[-1]
-    console.log(className)
-  }
+.child-container {
+  visibility: hidden;
+  transform: translateX(1200%);
+  transition: transform 1.8s ease, visibility ease;
+}
+
+.child-container:nth-of-type(even) {
+  /* even boxes - every other one */
+  /* transition-delay: 1s; */
+  transform: translateX(-1200%);
+}
+
+.child-container.show {
+  /* move to the default position (center of the screen) */
+  /* transition-delay: 1s; */
+  visibility: visible;
+  transform: translateX(0);
+}

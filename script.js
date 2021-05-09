@@ -26,7 +26,6 @@ function removeElement(className) {
 
 // ---------------------------------INTRO---------------------------------
 
-setTimeout(() => {})
 const childrenOfBoxes = []
 const boxes = document.querySelectorAll('.container')
 boxes.forEach((box) => {
@@ -44,21 +43,47 @@ boxes.forEach((box) => {
 })
 // console.log(childrenOfBoxes)
 // console.log(childrenOfBoxes[0][0].state)
+// boxes.forEach((box) => {
+//   box.classList.add('show')
+// })
+// boxes.forEach((box) => {
+//   box.classList.remove('show')
+// })
+
 window.addEventListener('scroll', checkBoxes)
-setTimeout(() => {
-  checkBoxes()
-}, 200)
+window.scroll({
+  top: 0,
+  left: 0,
+  behavior: 'smooth',
+})
+window.onload = onloadf
+
+checkBoxes()
+
+function onloadf() {
+  // window.scrollTo(0, document.body.scrollHeight)
+  // window.scrollTo(0, document.body.scrollHeight)
+  // setTimeout(() => {}, 200)
+  // if ('scrollRestoration' in history) {
+  //   history.scrollRestoration = 'manual'
+  // }
+  // window.scrollTo(0, 0)
+
+  console.log('success')
+}
 
 function checkBoxes() {
+  console.log('scroll')
+
   // when do we want the content to come in?
   const triggerBottom = (window.innerHeight / 4) * 3
   boxes.forEach((box, index) => {
-    setIndexes()
     // get the value of the top boundary of each box
     const boxTop = box.getBoundingClientRect().top
     if (boxTop < triggerBottom) {
       box.classList.add('show')
-      setIndexes()
+      box.style.transform = 'none'
+      setCorrectHref()
       const children = box.children[0].children
       setTimeout(() => {
         for (var i = 0; i < childrenOfBoxes[index].length; i++) {
@@ -85,64 +110,71 @@ function checkBoxes() {
   })
 }
 
-function showChildren(child) {
-  child.classList.add('show')
-}
-
-const arrowDown = document.getElementById('arrow-down-a')
-const statesOfContainers = []
-const listOfStates = []
-
-// Set Index1 for containers that are shown to the user
-setTimeout(() => {
-  setIndexes()
-}, 300)
-
-function setIndexes() {
-  listOfStates.length = 0
+function setCorrectHref() {
+  const arrowDown = document.getElementById('arrow-down-a')
+  // console.log(1)
   for (let i = 0; i < boxes.length; i++) {
-    if (boxes[i].classList.contains('show')) {
-      boxes[i].style.transform = 'translateX(0)'
-
-      listOfStates.push({
-        currentIndex: 1,
-      })
-    } else {
-      listOfStates.push({
-        currentIndex: 0,
-      })
-    }
-  }
-  // setTimeout(() => {
-  //   for (let i = 0; i < boxes.length; i++) {
-  //     boxes[i].style.transform = ''
-  //   }
-  // }, 100)
-  // console.log(listOfStates)
-}
-
-// set Container Name (class) as their id
-for (let j = 0; j < boxes.length; j++) {
-  let className = boxes[j].getAttribute('class').split(' ')[1]
-  boxes[j].setAttribute('id', className)
-}
-
-arrowDown.addEventListener('click', () => {
-  for (let j = 0; j < listOfStates.length; j++) {
-    console.log('hi')
-    const transformProperty = boxes[j].style.transform
-    console.log(transformProperty)
-    let className = boxes[j].getAttribute('class').split(' ')[1]
-    setIndexes()
-    var currentContainer = listOfStates[j]
-    if (currentContainer.currentIndex === 0) {
-      console.log('0')
-      let hrefValue = `#${className}`
-      arrowDown.setAttribute('href', hrefValue)
-      console.log(hrefValue)
+    if (!boxes[i].classList.contains('show')) {
+      const classesOfBox = boxes[i]
+      const currentId = $(boxes[i]).attr('id')
+      console.log(currentId)
+      // window.open(arrowDown.href, '_blank')
+      arrowDown.setAttribute('href', `#${currentId}`)
       break
     }
   }
+}
+$(document).ready(function () {
+  const arrowDown = document.getElementById('arrow-down-a')
+  // Add smooth scrolling to all links
+  $(arrowDown).on('click', function (event) {
+    // Make sure this.hash has a value before overriding default behavior
+    if (this.hash !== '') {
+      // Prevent default anchor click behavior
+      event.preventDefault()
+
+      // Store hash
+      var hash = this.hash
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate(
+        {
+          scrollTop: $(hash).offset().top,
+        },
+        800,
+        function () {
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash
+        }
+      )
+    } // End if
+    if (this.hash !== '') {
+      // Prevent default anchor click behavior
+      event.preventDefault()
+
+      // Store hash
+      var hash = this.hash
+
+      // Using jQuery's animate() method to add smooth page scroll
+      // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+      $('html, body').animate(
+        {
+          scrollTop: $(hash).offset().top,
+        },
+        800,
+        function () {
+          // Add hash (#) to URL when done scrolling (default click behavior)
+          window.location.hash = hash
+        }
+      )
+    } // End if
+  })
 })
+// arrowDown.addEventListener('click', () => {
+//   console.log('hi')
+//   console.log('clcik')
+
+// })
 
 // ------------------------------------------------------------------
