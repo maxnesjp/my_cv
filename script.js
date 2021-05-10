@@ -196,3 +196,24 @@ const resumeButton = document.getElementById('resume-button')
 resumeButton.addEventListener('click', () => {
   download_file('resume_Maxim_Nesterov.pdf', 'resume') //call function
 })
+
+// ------------------------------------------------------------------
+
+// ---------------------------------CYCLING---------------------------------
+
+// put all divs with class 'panel' in a node list or simply list
+const panels = document.querySelectorAll('.panels .panel')
+
+panels.forEach((panel) => {
+  panel.addEventListener('click', () => {
+    // add a class 'active' whenever we click on a panel
+    removeActiveClasses()
+    panel.classList.add('active')
+  })
+})
+
+function removeActiveClasses() {
+  panels.forEach((panel) => {
+    panel.classList.remove('active')
+  })
+}

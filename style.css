@@ -401,7 +401,7 @@ nav .icon {
   background: transparent;
 }
 .skill {
-  margin: 2% 0;
+  margin: 1% 0;
   padding-bottom: 3%;
   min-width: 100%;
   /* width: 40%; */
@@ -475,18 +475,24 @@ nav .icon {
 }
 .autobiography {
   position: relative;
-  text-align: left;
+  /* text-align: left; */
   margin-bottom: 2%;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
+  text-align: center;
 }
+.autobiography-container .autobiography .description {
+}
+
 .autobiography-container .autobiography .text {
+  padding: 2% 0;
   text-align: left;
-  padding: 2% 0 3% 0;
+}
+
+@media (min-width: 1200px) {
+  .autobiography-container .autobiography .text {
+    padding: 1% 0;
+    text-align: left;
+  }
 }
 
 .btn {
@@ -528,6 +534,84 @@ nav .icon {
   flex-direction: row;
   flex-wrap: wrap;
 }
+.cycling-container .cycling .text {
+  padding: 2% 0;
+  text-align: left;
+}
+
+@media (min-width: 1200px) {
+  .cycling-container .cycling .text {
+    padding: 1% 0;
+    text-align: left;
+  }
+}
+.panels {
+  display: flex;
+  width: 90vw;
+}
+.panel {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 70vh;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  /* width. everything is even right now */
+  flex: 0.5;
+  margin: 10px;
+  position: relative;
+  transition: flex 0.7s ease-in;
+}
+
+.panels #panel1 {
+  background-image: url('pictures/cycling-club/okutama-group.jpg');
+}
+.panels #panel2 {
+  background-image: url('pictures/cycling-club/kawaguchiko-fuji.jpeg');
+}
+.panels #panel3 {
+  background-image: url('pictures/cycling-club/enoshima-ocean.png');
+}
+.panels #panel4 {
+  background-image: url('pictures/cycling-club/okutama-from-behind-2.jpeg');
+}
+.panels #panel5 {
+  background-image: url('pictures/cycling-club/kawaguchiko-group.jpeg');
+}
+.panels #panel6 {
+  background-image: url('pictures/cycling-club/okutama-from-behind.jpg');
+}
+
+.panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.panel.active {
+  flex: 5;
+}
+.panel.active h3 {
+  opacity: 1;
+  /* 0.4s - delay */
+  transition: opacity 0.3s ease-in 0.4s;
+}
+/* if the screen is too small, show only 3 images instead of 5 */
+@media (max-width: 800px) {
+  .container {
+    width: 100vw;
+  }
+  .panel:nth-of-type(4),
+  .panel:nth-of-type(5),
+  .panel:nth-of-type(6) {
+    display: none;
+  }
+}
+
 /* ---------------------------------------------------------------- */
 
 /* --------------------------------FOOTER-------------------------------- */
@@ -537,6 +621,7 @@ nav .icon {
   align-items: center;
   justify-content: space-around;
   margin: 5% 25%;
+  transition: margin 0.5s ease-in;
 }
 
 @media (max-width: 800px) {
@@ -544,6 +629,12 @@ nav .icon {
     margin: 6% 8%;
   }
 }
+@media (min-width: 1200px) {
+  .footer {
+    margin: 3% 20%;
+  }
+}
+
 .footer .awesome {
   color: #44c767;
 }
