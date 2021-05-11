@@ -4,6 +4,7 @@ const nav = document.getElementById('nav')
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active')
   if (nav.classList.contains('active')) {
+    nav.style.borderBottomRightRadius = '0px'
     // setTimeout(() => {
     //   const newHelloWorld = document.createElement('h3')
     //   newHelloWorld.innerText = 'Hello, World'
