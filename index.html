@@ -33,7 +33,7 @@
             <ul>
                 <li><a href="#intro-container">Home</a></li>
                 <li><a href="#autobiography-container">About</a></li>
-                <li><a href="#certificates-container">Professional Certificates</a></li>
+                <li><a href="#certificates-container">Certificates</a></li>
                 <li><a href="#contact-container">Contact</a></li>
             </ul>
             
@@ -45,8 +45,10 @@
         </nav>
     </header>
     <body class="main">
+        
         <a id="arrow-down-a"><i class="fas fa-angle-double-down fa-5x arrow-down awesome animated bounce" id="arrow-down"></i></a>
         <div class="container intro-container" id="intro-container">
+            <div id="loader" class="center"></div>
             <div class="intro">
                 <h1 class="title nowrap">Maxim Nesterov</h1>
                 <img class="myphoto" src="pictures/me.jpg" alt="myphoto">
@@ -70,7 +72,7 @@
                     Since my enrollment in <span class="templeuni nowrap">Temple University</span> in 2019, I have been studying computer science. I am currently in my third year with an overall GPA of 3.87. 
                     <br>
                     With all the knowledge I am gaining, I hope to be a great contributor to society.
-                    In the spring/summer of 2022, I am planning to graduate and land a job as a Full-Stack Engineer. 
+                    In the spring/summer of 2022, I am planning to graduate and land a job as a <span class="full-stack nowrap">Full-Stack Engineer</span>. 
                 </div>
                 <div class="text">
                     Computer scientist with a good understanding of economics models and statistics. Efficient at automating data collection and analysis and applying economics models to data science.
@@ -118,7 +120,7 @@
         </div>
         <div class="container cycling-container" id="cycling-container">
             <div class="cycling">
-                <div class="description focused">
+                <div class="description">
                     <h2>
                         Leader of a College <span class="nowrap"><i class="fas fa-bicycle awesome"></i>Cycling Club</span> 
                     </h2>
@@ -134,13 +136,13 @@
                 </div>
                 <div class="panelsContainer">
                     <div 
-                        class="panel active" 
+                        class="panel" 
                         id="panel1" 
                         style="background-image: url('pictures/cycling-club/okutama-group.jpg');">
                         <h3>Okutama Day Trip</h3>
                     </div>
                     <div 
-                        class="panel" 
+                        class="panel active" 
                         id="panel2" 
                         style="background-image: url('pictures/cycling-club/kawaguchiko-fuji.jpeg');">
                         <h3>Kawaguchiko Fuji</h3>
@@ -196,19 +198,18 @@
                         </div>
                     </div>
                     <div class="right-container">
-                        <form action="">
+                        <form action="https://formsubmit.co/35f2afcc12f9ccf0ff5544ee4ebc7b1b" method="POST">
                             <div class="form-control">
-                                <input type="text" required>
+                                <input name="email" type="email" placeholder=" " required>
                                 <label>Email</label>
                             </div>
                             <div class="form-control">
-                                <textarea name="textarea" id="textarea" class="textarea" rows="4"></textarea>
+                                <textarea name="Text Field" id="textarea" class="textarea" rows="4"></textarea>
                                 <label>Message</label>
                             </div>
-                            <button class="btn submit-button">Submit</button>
+                            <button type="submit" class="btn submit-button">Submit</button>
                         </form>
                     </div>
-                    
                 </div>
                 <div class="sayhi-container">
                     <button class="btn">SAY HI</button>
@@ -220,6 +221,9 @@
     <footer class="footer">
 
         <h3 id="footer-name"></h3>
+        <div class="arrow-up-container">
+            <a id="arrow-up-a"><i class="fas fa-angle-double-up fa-5x arrow-up awesome animated bounce" id="arrow-up"></i></a>
+        </div>
         
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

@@ -1,6 +1,8 @@
 // ---------------------------------HEADER---------------------------------
 const toggle = document.getElementById('toggle')
 const nav = document.getElementById('nav')
+const header = document.querySelector('.header')
+
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active')
   if (nav.classList.contains('active')) {
@@ -23,12 +25,50 @@ function removeElement(className) {
   var elem = document.querySelector(`.${className}`)
   $(`.${className}`).remove()
 }
+
+function load() {
+  let opacity = 0
+  let position = 100
+  let interval = setInterval(changing, 20)
+
+  function changing() {
+    // opacity
+    header.style.opacity = opacity
+    if (opacity > 1) {
+      header.style.opacity = 1
+      clearInterval(interval)
+    }
+    opacity = opacity + 0.015
+    // position
+    nav.style.transform = `translateY(-${position}%)`
+    position = position - 4
+  }
+}
+
+window.onload = load
+
+document.onreadystatechange = function () {
+  if (document.readyState !== 'complete') {
+    document.querySelector('body').style.visibility = 'hidden'
+    document.querySelector('#loader').style.visibility = 'visible'
+  } else {
+    document.querySelector('#loader').style.display = 'none'
+    document.querySelector('body').style.visibility = 'visible'
+  }
+}
+
 // ------------------------------------------------------------------
 
 // ---------------------------------INTRO---------------------------------
 
 const childrenOfBoxes = []
 const boxes = document.querySelectorAll('.container')
+const lastContainer = document.getElementById('contact-container')
+const body = document.body
+const arrowDown = document.getElementById('arrow-down-a')
+const arrowAwesome = document.getElementById('arrow-down')
+const arrowUp = document.getElementById('arrow-up-a')
+
 boxes.forEach((box) => {
   var boxChildren = box.children[0].children
   var listOfChildren = []
@@ -50,8 +90,20 @@ window.scroll({
   behavior: 'smooth',
 })
 checkBoxes()
+
 function checkBoxes() {
-  // console.log('scroll')
+  // check if the last container (contact page) is shown to the user
+
+  if (lastContainer.classList.contains('show')) {
+    arrowDown.style.visibility = 'hidden'
+    // make the arrow up visible
+    arrowUp.style.visibility = 'visible'
+    arrowUp.style.cursor = 'pointer'
+  } else {
+    arrowDown.style.visibility = 'visible'
+    // make the arrow up disappear
+    arrowUp.style.visibility = 'initial'
+  }
 
   // when do we want the content to come in?
   const triggerBottom = (window.innerHeight / 4) * 3
@@ -88,9 +140,15 @@ function checkBoxes() {
   })
 }
 
+arrowUp.addEventListener('click', () => {
+  // Scroll to the TOP of the page
+  document.body.scrollTop = 0 // For Safari
+  document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+})
+
 function setCorrectHref() {
-  const arrowDown = document.getElementById('arrow-down-a')
   // console.log(1)
+  const arrowDown = document.getElementById('arrow-down-a')
   for (let i = 0; i < boxes.length; i++) {
     if (!boxes[i].classList.contains('show')) {
       const classesOfBox = boxes[i]
@@ -102,6 +160,7 @@ function setCorrectHref() {
     }
   }
 }
+
 $(document).ready(function () {
   const arrowDown = document.getElementById('arrow-down-a')
   // Add smooth scrolling to all links
@@ -207,7 +266,6 @@ const panelContainer = document.querySelector('.panelsContainer')
 const panels = document.querySelectorAll('.panelsContainer .panel')
 // let activePanel = document.querySelector('.panelsContainer .panel.active')
 let focusedPanel = document.querySelector('.cycling .focused')
-const body = document.body
 
 panels.forEach((panel) => {
   panel.addEventListener('click', () => {
@@ -216,74 +274,8 @@ panels.forEach((panel) => {
     removeActiveClasses()
     panel.classList.add('active')
     setTimeout(() => {}, 300)
-
-    // document
-    //   .querySelector('.panelsContainer .panel.active')
-    //   .addEventListener('click', () => {
-    //     console.log('active panel clicked')
-    //     hidePanels()
-    //     panelContainer.style.backgroundImage = document.querySelector(
-    //       '.panelsContainer .panel.active'
-    //     ).style.backgroundImage
-    //     panelContainer.classList.add('not-active')
-    //     setTimeout(() => {
-    //       panelContainer.classList.remove('not-active')
-    //       panelContainer.style.backgroundImage = 'none'
-    //       revealPanels()
-    //     }, 2000)
-    //   })
   })
 })
-
-// document
-//   .querySelector('.panelsContainer .panel.active')
-//   .addEventListener('click', () => {
-//     console.log('active panel clicked')
-//     hidePanels()
-//     panelContainer.style.backgroundImage = document.querySelector(
-//       '.panelsContainer .panel.active'
-//     ).style.backgroundImage
-//     panelContainer.classList.add('not-active')
-//     setTimeout(() => {
-//       panelContainer.classList.remove('not-active')
-//       panelContainer.style.backgroundImage = 'none'
-//       revealPanels()
-//     }, 2000)
-//   })
-
-// panelContainer.addEventListener('click', () => {
-//   console.log('clicked on the container')
-//   setTimeout(() => {
-//     removeFocusedClasses()
-
-//     panelContainer.style.backgroundImage = 'none'
-//     revealPanels()
-//   }, 2300)
-// })
-
-function resetActive() {
-  activePanel = document.querySelector('.panelsContainer .panel.active')
-}
-
-function resetFocused() {
-  focusedPanel = document.querySelector('.active.focused')
-}
-
-function hidePanels() {
-  panels.forEach((panel) => {
-    console.log('hidden')
-    panel.classList.add('hidden')
-  })
-  // setTimeout(() => {}, 200)
-}
-
-function revealPanels() {
-  panels.forEach((panel) => {
-    console.log('revealed')
-    panel.classList.remove('hidden')
-  })
-  // setTimeout(() => {}, 200)
-}
 
 function removeActiveClasses() {
   const activeClasses = document.querySelectorAll('.panel.active')
@@ -304,6 +296,7 @@ function removeFocusedClasses() {
 // ---------------------------------CONTACT---------------------------------
 
 const labels = document.querySelectorAll('.boxes .form-control label')
+const textArea = document.querySelector('.textarea')
 // console.log(labels.length)
 
 labels.forEach((label) => {
@@ -316,6 +309,16 @@ labels.forEach((label) => {
     )
     .join('')
   console.log(label)
+})
+
+// textArea.addEventListener('click', () => {
+//   labels[1].style.transform = 'translateY(-100%)'
+// })
+
+textArea.addEventListener('keyup', () => {
+  if (textArea.length !== 0) {
+    labels[1].style.innerHTML = ''
+  }
 })
 
 // ------------------------------------------------------------------
