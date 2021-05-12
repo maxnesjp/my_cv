@@ -19,6 +19,7 @@ body {
 
   /* height: 100vh; */
   width: 100%;
+  /* z-index: 150; */
 }
 body,
 html {
@@ -346,6 +347,7 @@ nav .icon {
   justify-content: center;
 
   padding: 0px 5%;
+  /* min-width: 90%; */
   width: 90%;
   height: fit-content;
   margin: 0 auto;
@@ -397,13 +399,63 @@ nav .icon {
 }
 /* ---------------------------------------------------------------- */
 
+/* --------------------------------AUTOBIOGRAPHY-------------------------------- */
+.autobiography-container {
+  height: fit-content;
+}
+.autobiography {
+  position: relative;
+  /* text-align: left; */
+  margin-bottom: 2%;
+  width: 100%;
+  text-align: center;
+}
+.autobiography-container .autobiography .description {
+}
+
+.autobiography-container .autobiography .text {
+  padding: 2% 0;
+  text-align: left;
+}
+
+@media (min-width: 1200px) {
+  .autobiography-container .autobiography .text {
+    padding: 1% 0;
+    text-align: left;
+  }
+}
+
+.btn {
+  box-shadow: inset 0px 1px 0px 0px #3dc21b;
+  background-color: #44c767;
+  border-radius: 6px;
+  border: 1px solid #1932ab;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 19px;
+  padding: 8px 47px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2f6627;
+}
+.btn:hover {
+  background-color: #5cbf2a;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+/* ---------------------------------------------------------------- */
+
 /* --------------------------------SKILLS-------------------------------- */
 
 .skills {
   position: relative;
   text-align: left;
   width: 100%;
-  margin: 3% 0;
+  margin: 3% 0 0;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -445,8 +497,19 @@ nav .icon {
   padding-bottom: 3%;
   min-width: 100%;
   /* width: 40%; */
-  border-bottom: 3px dashed black;
+  border-bottom: none;
   border-width: 0.15rem;
+}
+
+.skill:nth-child(2),
+.skill:nth-child(3) {
+  border-bottom: 3px dashed black;
+}
+
+@media (max-width: 800px) {
+  .skill:not(:last-child) {
+    border-bottom: 3px dashed black;
+  }
 }
 
 .awesome {
@@ -501,60 +564,7 @@ nav .icon {
 
 /* ---------------------------------------------------------------- */
 
-/* --------------------------------DEMO-------------------------------- */
-.demo {
-  width: 100%;
-  height: 600px;
-}
-/* ---------------------------------------------------------------- */
-
-/* --------------------------------AUTOBIOGRAPHY-------------------------------- */
-.autobiography-container {
-  height: fit-content;
-}
-.autobiography {
-  position: relative;
-  /* text-align: left; */
-  margin-bottom: 2%;
-  width: 100%;
-  text-align: center;
-}
-.autobiography-container .autobiography .description {
-}
-
-.autobiography-container .autobiography .text {
-  padding: 2% 0;
-  text-align: left;
-}
-
-@media (min-width: 1200px) {
-  .autobiography-container .autobiography .text {
-    padding: 1% 0;
-    text-align: left;
-  }
-}
-
-.btn {
-  box-shadow: inset 0px 1px 0px 0px #3dc21b;
-  background-color: #44c767;
-  border-radius: 6px;
-  border: 1px solid #1932ab;
-  display: inline-block;
-  cursor: pointer;
-  color: #ffffff;
-  font-family: Arial;
-  font-size: 19px;
-  padding: 8px 47px;
-  text-decoration: none;
-  text-shadow: 0px 1px 0px #2f6627;
-}
-.btn:hover {
-  background-color: #5cbf2a;
-}
-.btn:active {
-  position: relative;
-  top: 1px;
-}
+/* --------------------------------CERTIFICATES-------------------------------- */
 
 /* ---------------------------------------------------------------- */
 
@@ -574,7 +584,7 @@ nav .icon {
   flex-wrap: wrap;
 }
 .cycling-container .cycling .text {
-  padding: 2% 0;
+  padding: 1.2% 0 1%;
   text-align: left;
 }
 
@@ -588,12 +598,27 @@ nav .icon {
     text-align: left;
   }
 }
-.panels {
+.panelsContainer {
   display: flex;
   width: 90vw;
+  background-position: center center;
+  background-size: cover;
+  transition: all 1s ease-in-out;
+}
+
+.panelsContainer.not-active {
+  border-radius: 50px;
+  pointer-events: none;
+  cursor: default;
+  transition: border-radius 0s ease-in-out;
+}
+
+.panelsContainer {
+  transition: all 1s ease-in-out;
 }
 .panel {
   background-size: cover;
+  background-image: none;
   background-position: center;
   background-repeat: no-repeat;
   height: 70vh;
@@ -602,28 +627,27 @@ nav .icon {
   cursor: pointer;
   /* width. everything is even right now */
   flex: 0.5;
-  margin: 10px;
+  margin: 0 0.5%;
   position: relative;
+  visibility: visible;
   transition: flex 0.7s ease-in;
 }
 
-.panels #panel1 {
-  background-image: url('pictures/cycling-club/okutama-group.jpg');
+.panel:first-child {
+  margin-left: 0;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
-.panels #panel2 {
-  background-image: url('pictures/cycling-club/kawaguchiko-fuji.jpeg');
+.panel:last-child {
+  margin-right: 0;
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
 }
-.panels #panel3 {
-  background-image: url('pictures/cycling-club/enoshima-ocean.png');
-}
-.panels #panel4 {
-  background-image: url('pictures/cycling-club/okutama-from-behind-2.jpeg');
-}
-.panels #panel5 {
-  background-image: url('pictures/cycling-club/kawaguchiko-group.jpeg');
-}
-.panels #panel6 {
-  background-image: url('pictures/cycling-club/okutama-from-behind.jpg');
+.panel:nth-child(2),
+.panel:nth-child(3),
+.panel:nth-child(4),
+.panel:nth-child(5) {
+  border-radius: 25px;
 }
 
 .panel h3 {
@@ -640,6 +664,10 @@ nav .icon {
   opacity: 0;
 }
 
+.panel.hidden {
+  visibility: hidden;
+}
+
 .panel.active {
   flex: 5;
 }
@@ -650,10 +678,228 @@ nav .icon {
 }
 /* if the screen is too small, show only 3 images instead of 5 */
 @media (max-width: 800px) {
+  .panel h3 {
+    left: 7px;
+  }
+
+  .panel:nth-child(3) {
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+
   .panel:nth-of-type(4),
   .panel:nth-of-type(5),
   .panel:nth-of-type(6) {
     display: none;
+  }
+}
+
+/* ---------------------------------------------------------------- */
+
+/* --------------------------------CONTACT-------------------------------- */
+.contact-container .contact {
+  width: 100%;
+  text-align: center;
+}
+
+.boxes {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 1% auto 0;
+}
+
+.boxes .left-container,
+.boxes .right-container {
+  background-color: #2b506e;
+  height: 30vh;
+  width: 100%;
+  margin: 1%;
+  border-radius: 10px;
+}
+.boxes .left-container {
+  margin-left: 0;
+}
+.boxes .right-container {
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  margin-right: 0;
+  /* padding: 20px 40px; */
+
+  /* border-radius: 5px; */
+}
+.sayhi-container {
+  background-color: #2b506e;
+  width: 100%;
+  margin: 0.3% 0;
+  border-radius: 10px;
+}
+
+.sayhi-container .btn {
+  width: 98%;
+  /* padding: 1rem 1rem; */
+  margin: 1% auto;
+}
+
+.left-container .social-media-container {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.social-media-container .social-media {
+  height: 20vh;
+  width: 100%;
+}
+.social-media .awesome {
+  font-size: 5rem;
+  display: block;
+  margin: 15% 0 15%;
+}
+
+.social-media .awesome,
+.social-media a {
+  color: #44c767;
+  transition: color 0.2s ease-in;
+}
+.social-media .awesome:hover,
+.social-media a:hover {
+  color: #5cbf2a;
+}
+.social-media .awesome:active,
+.social-media a:active {
+  transform: scale(0.98);
+}
+
+.right-container a {
+  text-decoration: none;
+  color: lightblue;
+}
+
+.submit-button {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: lightblue;
+  padding: 10px 10px;
+  font-family: inherit;
+  font-size: 16px;
+  border: 0;
+  border-radius: 5px;
+}
+
+.submit-button:focus {
+  outline: 0;
+}
+/* when we click */
+.submit-button:active {
+  transform: scale(0.98);
+}
+
+/* .text {
+  margin-top: 30px;
+} */
+
+.right-container form {
+  margin: auto;
+  width: 80%;
+  height: 20vh;
+  margin-top: 3%;
+}
+
+.form-control {
+  position: relative;
+  margin: 1% 0 3%;
+  /* width: 300px; */
+}
+
+.form-control:first-child {
+  margin-bottom: 4%;
+}
+
+.form-control input,
+.form-control .textarea {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px #fff solid;
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 18px;
+  color: #fff;
+}
+
+.form-control input:focus,
+.form-control input:valid,
+.form-control .textarea:focus,
+.form-control .textarea:valid {
+  /* color: red; */
+  outline: 0;
+  border-bottom-color: lightblue;
+}
+
+.form-control label {
+  position: absolute;
+  top: 10%;
+  left: 0;
+  letter-spacing: 0.6px;
+  color: #44c767;
+  pointer-events: none;
+}
+
+.form-control label span {
+  display: inline-block;
+  /* color: red; */
+  font-size: 1.3rem;
+  transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.form-control input:focus + label span,
+.form-control input:valid + label span {
+  color: #5cbf2a;
+  transform: translateY(-70%);
+}
+.form-control .textarea:focus + label span {
+  color: #5cbf2a;
+  transform: translateY(-100%);
+}
+
+.form-control .textarea {
+  /* padding: 2rem; */
+  width: 100%;
+  resize: none;
+}
+
+@media (max-width: 800px) {
+  .boxes {
+    flex-direction: column;
+    margin: 1% auto 0;
+  }
+  .boxes .left-container,
+  .boxes .right-container {
+    background-color: #2b506e;
+    height: 30vh;
+    width: 100%;
+    margin: 1% 0;
+  }
+  .left-container .social-media-container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .social-media-container .social-media {
+    height: 20vh;
+    width: 100%;
+  }
+  .social-media .awesome {
+    display: block;
+    margin-bottom: 15%;
   }
 }
 
@@ -678,16 +924,6 @@ nav .icon {
   .footer {
     margin: 3% 20%;
   }
-}
-
-.footer .awesome {
-  color: #44c767;
-}
-.footer .awesome:hover {
-  color: #5cbf2a;
-}
-.footer .awesome:active {
-  transform: scale(0.98);
 }
 
 /* ---------------------------------------------------------------- */

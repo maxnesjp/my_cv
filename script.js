@@ -203,18 +203,125 @@ resumeButton.addEventListener('click', () => {
 // ---------------------------------CYCLING---------------------------------
 
 // put all divs with class 'panel' in a node list or simply list
-const panels = document.querySelectorAll('.panels .panel')
+const panelContainer = document.querySelector('.panelsContainer')
+const panels = document.querySelectorAll('.panelsContainer .panel')
+// let activePanel = document.querySelector('.panelsContainer .panel.active')
+let focusedPanel = document.querySelector('.cycling .focused')
+const body = document.body
 
 panels.forEach((panel) => {
   panel.addEventListener('click', () => {
+    console.log('clicked')
     // add a class 'active' whenever we click on a panel
     removeActiveClasses()
     panel.classList.add('active')
+    setTimeout(() => {}, 300)
+
+    // document
+    //   .querySelector('.panelsContainer .panel.active')
+    //   .addEventListener('click', () => {
+    //     console.log('active panel clicked')
+    //     hidePanels()
+    //     panelContainer.style.backgroundImage = document.querySelector(
+    //       '.panelsContainer .panel.active'
+    //     ).style.backgroundImage
+    //     panelContainer.classList.add('not-active')
+    //     setTimeout(() => {
+    //       panelContainer.classList.remove('not-active')
+    //       panelContainer.style.backgroundImage = 'none'
+    //       revealPanels()
+    //     }, 2000)
+    //   })
   })
 })
 
-function removeActiveClasses() {
+// document
+//   .querySelector('.panelsContainer .panel.active')
+//   .addEventListener('click', () => {
+//     console.log('active panel clicked')
+//     hidePanels()
+//     panelContainer.style.backgroundImage = document.querySelector(
+//       '.panelsContainer .panel.active'
+//     ).style.backgroundImage
+//     panelContainer.classList.add('not-active')
+//     setTimeout(() => {
+//       panelContainer.classList.remove('not-active')
+//       panelContainer.style.backgroundImage = 'none'
+//       revealPanels()
+//     }, 2000)
+//   })
+
+// panelContainer.addEventListener('click', () => {
+//   console.log('clicked on the container')
+//   setTimeout(() => {
+//     removeFocusedClasses()
+
+//     panelContainer.style.backgroundImage = 'none'
+//     revealPanels()
+//   }, 2300)
+// })
+
+function resetActive() {
+  activePanel = document.querySelector('.panelsContainer .panel.active')
+}
+
+function resetFocused() {
+  focusedPanel = document.querySelector('.active.focused')
+}
+
+function hidePanels() {
   panels.forEach((panel) => {
+    console.log('hidden')
+    panel.classList.add('hidden')
+  })
+  // setTimeout(() => {}, 200)
+}
+
+function revealPanels() {
+  panels.forEach((panel) => {
+    console.log('revealed')
+    panel.classList.remove('hidden')
+  })
+  // setTimeout(() => {}, 200)
+}
+
+function removeActiveClasses() {
+  const activeClasses = document.querySelectorAll('.panel.active')
+  activeClasses.forEach((panel) => {
     panel.classList.remove('active')
   })
 }
+
+function removeFocusedClasses() {
+  const focusedClasses = document.querySelectorAll('.panel.active.focused')
+  focusedClasses.forEach((panel) => {
+    panel.classList.remove('focused')
+  })
+}
+
+// ------------------------------------------------------------------
+
+// ---------------------------------CONTACT---------------------------------
+
+const labels = document.querySelectorAll('.boxes .form-control label')
+// console.log(labels.length)
+
+labels.forEach((label) => {
+  console.log(label.innerHTML)
+  label.innerHTML = label.innerHTML
+    .split('')
+    .map(
+      (letter, index) =>
+        `<span style="transition-delay:${index * 45}ms">${letter}</span>`
+    )
+    .join('')
+  console.log(label)
+})
+
+// ------------------------------------------------------------------
+
+// ---------------------------------FOOTER---------------------------------
+const footerName = document.getElementById('footer-name')
+const currentYear = new Date().getFullYear()
+
+footerName.innerHTML = `©${currentYear}, Maxim Nesterov`
