@@ -753,49 +753,37 @@ nav .icon {
   margin: 1%;
   border-radius: 10px;
 }
+
 .boxes .left-container {
   margin-left: 0;
-}
-.boxes .right-container {
-  margin-right: 0;
-}
-
-@media (max-width: 800px) {
-  .boxes .left-container .social-media-container,
-  .boxes .right-container form {
-    width: 90%;
-  }
-}
-@media (min-width: 1200px) {
-  .boxes .left-container .social-media-container {
-    margin-top: 8%;
-  }
+  position: relative;
 }
 .boxes .left-container .social-media-container {
-  margin-top: 8%;
-}
-.sayhi-container {
-  background-color: #2b506e;
-  width: 100%;
-  margin: 0.3% 0;
-  border-radius: 10px;
-}
-
-.sayhi-container .btn {
-  width: 98%;
-  /* padding: 1rem 1rem; */
-  margin: 1% auto;
-}
-
-.left-container .social-media-container {
-  width: 80%;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   margin: auto;
-  margin-bottom: 5%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
+.boxes .right-container {
+  margin-right: 0;
+}
+.right-container a {
+  text-decoration: none;
+  color: lightblue;
+}
+.right-container form {
+  width: 80%;
+  margin: 4% auto;
+}
+
 .social-media-container .social-media {
   /* height: 20vh; */
   width: 100%;
@@ -804,60 +792,96 @@ nav .icon {
   font-size: 5rem;
   display: block;
   margin: 5% 0 5%;
+  transition: all 0.35 ease-in-out;
+}
+
+.social-media a {
+  color: #fff;
+  font-size: 1.3rem;
+}
+
+.social-media .awesome {
+  color: black;
 }
 
 .social-media .awesome,
 .social-media a {
-  color: #44c767;
   transition: color 0.2s ease-in;
 }
-.social-media .awesome:hover,
+
 .social-media a:hover {
+  color: #23049d;
+  font-weight: bold;
+}
+.social-media a:hover .awesome {
   color: #5cbf2a;
 }
+
 .social-media .awesome:active,
 .social-media a:active {
   transform: scale(0.98);
 }
 
-.right-container a {
-  text-decoration: none;
-  color: lightblue;
-}
-
 .submit-button {
+  text-shadow: none;
+  box-shadow: none;
   cursor: pointer;
   display: inline-block;
   width: 100%;
-  background-color: lightblue;
+  background-color: black;
   padding: 8px 10px;
   font-family: inherit;
-  font-size: 16px;
+  font-size: 1.5rem;
+  text-transform: uppercase;
   border: 0;
   border-radius: 5px;
+  transition: all 0.35s ease-in-out;
 }
 
 .submit-button:focus {
   outline: 0;
 }
-/* when we click */
+
+.submit-button:hover {
+  color: #23049d;
+  font-weight: bold;
+}
+
 .submit-button:active {
   transform: scale(0.98);
 }
 
-/* .text {
-  margin-top: 30px;
-} */
+@media (max-width: 800px) {
+  .boxes {
+    flex-direction: column;
+  }
+  .boxes .left-container {
+    width: 100%;
+    height: 20vh;
+  }
+  .boxes .left-container .social-media-container,
+  .boxes .right-container form {
+    width: 90%;
+  }
 
-.right-container form {
-  width: 80%;
-  margin: 3% auto;
+  .boxes .right-container {
+    background-color: #2b506e;
+    width: 100%;
+    margin: 1% 0;
+  }
+  .social-media .awesome {
+    display: block;
+    font-size: 4rem;
+  }
+  .social-media a {
+    color: #fff;
+    font-size: 1rem;
+  }
 }
 
 .form-control {
   position: relative;
-  margin: 1% 0 3%;
-  /* width: 300px; */
+  margin: 3% 0 3%;
 }
 
 .form-control:first-child {
@@ -868,13 +892,14 @@ nav .icon {
 .form-control .textarea {
   background-color: transparent;
   border: 0;
-  border-bottom: 2px #fff solid;
+  border-bottom: 2px #21094e solid;
   display: block;
   width: 100%;
   padding: 10px 0;
   font-size: 18px;
   color: #fff;
   font-family: inherit;
+  transition: border-bottom 0.7s ease;
 }
 
 .form-control input:focus,
@@ -882,7 +907,7 @@ nav .icon {
 .form-control .textarea:focus {
   /* color: red; */
   outline: 0;
-  border-bottom-color: lightblue;
+  border-bottom-color: #5cbf2a;
 }
 
 .form-control label {
@@ -890,7 +915,7 @@ nav .icon {
   top: 10%;
   left: 0;
   letter-spacing: 0.6px;
-  color: #44c767;
+  color: black;
   pointer-events: none;
 }
 
@@ -898,7 +923,7 @@ nav .icon {
   display: inline-block;
   font-family: inherit;
   /* color: red; */
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
@@ -907,6 +932,10 @@ nav .icon {
 .form-control input:not(:placeholder-shown) + label span {
   color: #44c767;
   transform: translateY(-70%);
+}
+.form-control input:valid + label span,
+.form-control input:not(:placeholder-shown) + label span {
+  color: black;
 }
 
 input:-webkit-autofill,
@@ -924,6 +953,10 @@ input:-webkit-autofill {
   color: #44c767;
   transform: translateY(-70%);
 }
+.form-control input:valid + label span {
+  color: black;
+  transform: translateY(-70%);
+}
 .form-control textarea:focus + label span,
 .form-control textarea:valid + label span,
 .form-control textarea:invalid + label span {
@@ -936,42 +969,121 @@ textarea {
 }
 
 .form-control .textarea {
-  /* padding: 2rem; */
-
   width: 100%;
   resize: none;
 }
 
-@media (max-width: 800px) {
-  .boxes {
-    flex-direction: column;
-    margin: 1% auto 0;
-  }
-  .boxes .left-container,
-  .boxes .right-container {
-    background-color: #2b506e;
-    width: 100%;
-    margin: 1% 0;
-  }
-  .left-container .social-media-container {
-    width: 80%;
-    margin: auto;
-    margin-bottom: 10%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-  }
-  .social-media-container .social-media {
-    /* height: 20vh; */
-    width: 100%;
-  }
-  .social-media .awesome {
-    display: block;
-    font-size: 2.6rem;
-    /* margin-bottom: 15%; */
-  }
+.sayhi-container {
+  background-color: #2b506e;
+  width: 100%;
+  margin: 0.3% 0;
+  padding: 1% 0;
+  border-radius: 10px;
+  margin-bottom: 3%;
 }
+
+.sayhi-btn {
+  width: 98%;
+  margin: 5px auto;
+  background-color: black;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.sayhi-btn a {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-size: 2rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: white;
+  transition: all 0.35s ease-in-out;
+}
+
+.sayhi-btn:hover a,
+.sayhi-btn:hover {
+  color: #23049d;
+  font-weight: bold;
+}
+
+.sayhi-btn:focus {
+  outline: 0;
+}
+
+.sayhi-btn:active {
+  transform: scale(0.98);
+}
+
+.sayhi-btn:hover {
+  background-color: #5cbf2a;
+  font-weight: bold;
+}
+
+.mailtoui-modal {
+  background-color: #2b506e;
+  font-family: 'Muli', sans-serif;
+  color: #fff;
+  transition: background-color 0.5s ease;
+}
+
+.mailtoui-modal-head {
+  background-color: #1f394f;
+}
+
+.mailtoui-modal-title {
+  font-family: inherit;
+  color: #fff;
+}
+
+.mailtoui-modal-close:focus,
+.mailtoui-modal-close:hover {
+  color: #fff;
+}
+
+.mailtoui-modal-body {
+  background-color: #5caced;
+}
+
+.mailtoui-button:focus .mailtoui-button-content {
+  background-color: #5cbf2a;
+  font-family: inherit;
+  color: #23049d;
+  font-weight: bold;
+}
+
+.mailtoui-button-content,
+.mailtoui-button-copy {
+  background-color: #000;
+  color: #fff;
+}
+
+.mailtoui-button-content:hover,
+.mailtoui-button-content:focus,
+.mailtoui-button-copy:hover,
+.mailtoui-button-copy:focus {
+  background-color: #5cbf2a;
+  color: #23049d;
+  font-weight: bold;
+}
+
+.mailtoui-button-copy-clicked,
+.mailtoui-button-copy-clicked:hover,
+.mailtoui-button-copy-clicked:focus {
+  background-color: #1f9d55;
+  color: #fff;
+}
+
+.mailtoui-email-address {
+  background-color: #909295;
+  color: #21262c;
+}
+
+.mailtoui-brand a:hover {
+  color: initial;
+}
+
+/* End dark theme */
 
 /* ---------------------------------------------------------------- */
 
@@ -998,9 +1110,8 @@ textarea {
 }
 .arrow-up-container {
   position: absolute;
-
-  bottom: 0;
-  right: 0;
+  bottom: -5%;
+  right: -3%;
 }
 .arrow-up-container .awesome {
   color: white;

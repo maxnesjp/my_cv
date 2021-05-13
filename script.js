@@ -208,11 +208,6 @@ $(document).ready(function () {
     } // End if
   })
 })
-// arrowDown.addEventListener('click', () => {
-//   console.log('hi')
-//   console.log('clcik')
-
-// })
 
 // ------------------------------------------------------------------
 
@@ -297,10 +292,10 @@ function removeFocusedClasses() {
 
 const labels = document.querySelectorAll('.boxes .form-control label')
 const textArea = document.querySelector('.textarea')
-// console.log(labels.length)
+const textAreaMsg = document.querySelector('.textarea-msg')
+const sayHiBtn = document.getElementById('sayhi-btn')
 
 labels.forEach((label) => {
-  console.log(label.innerHTML)
   label.innerHTML = label.innerHTML
     .split('')
     .map(
@@ -308,17 +303,23 @@ labels.forEach((label) => {
         `<span style="transition-delay:${index * 45}ms">${letter}</span>`
     )
     .join('')
-  console.log(label)
 })
-
-// textArea.addEventListener('click', () => {
-//   labels[1].style.transform = 'translateY(-100%)'
-// })
 
 textArea.addEventListener('keyup', () => {
   if (textArea.length !== 0) {
     labels[1].style.innerHTML = ''
   }
+})
+
+// textArea change color on hover effect
+textArea.addEventListener('focus', (event) => {
+  textAreaMsg.style.color = '#44c767'
+  textAreaMsg.style.borderBottomColor = '#44c767'
+})
+
+textArea.addEventListener('focusout', (event) => {
+  textAreaMsg.style.color = 'initial'
+  textAreaMsg.style.borderBottomColor = 'initial'
 })
 
 // ------------------------------------------------------------------

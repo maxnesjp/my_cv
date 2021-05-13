@@ -182,9 +182,6 @@
                 </div>
                 <div class="boxes">
                     <div class="left-container">
-                        <div class="description">
-                            <h3>VIA Social Media</h3>
-                        </div>
                         <div class="social-media-container">
                             <div class="social-media">
                                 <a href="https://www.facebook.com/NesMaxJP/" class="social-media-a"><i class="fab fa-facebook-square fa-4x awesome"></i><span class="title">Facebook</span></a>
@@ -205,14 +202,18 @@
                             </div>
                             <div class="form-control">
                                 <textarea name="Text Field" id="textarea" class="textarea" rows="4"></textarea>
-                                <label>Message</label>
+                                <label class="textarea-msg">Message</label>
                             </div>
+                            <input type="hidden" name="_captcha" value="false">
                             <button type="submit" class="btn submit-button">Submit</button>
                         </form>
                     </div>
                 </div>
                 <div class="sayhi-container">
-                    <button class="btn">SAY HI</button>
+                    <h2>Alternatively, contact me using a familiar environment</h2>
+                    <div class="sayhi-btn">
+                        <a class="mailtoui" href="mailto:maxnes500@gmail.com">Say hi</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -226,6 +227,7 @@
         </div>
         
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/mailtoui@1.0.3/dist/mailtoui-min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="script.js"></script>
 </body>
