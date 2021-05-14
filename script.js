@@ -46,14 +46,14 @@ function load() {
 }
 
 window.onload = load
-
+const coverBody = document.querySelector('.cover-body')
 document.onreadystatechange = function () {
   if (document.readyState !== 'complete') {
-    document.querySelector('body').style.visibility = 'hidden'
+    coverBody.style.visibility = 'hidden'
     document.querySelector('#loader').style.visibility = 'visible'
   } else {
     document.querySelector('#loader').style.display = 'none'
-    document.querySelector('body').style.visibility = 'visible'
+    coverBody.style.visibility = 'visible'
   }
 }
 
@@ -257,7 +257,6 @@ resumeButton.addEventListener('click', () => {
 // ---------------------------------CERTIFICATES---------------------------------
 const googleCertificateBtn = document.getElementById('google-certificate-btn')
 const udemyCertificateBtn = document.getElementById('udemy-certificates-btn')
-const coverBody = document.querySelector('.cover-body')
 
 googleCertificateBtn.addEventListener('click', () => {
   const windowWidth = $(window).width()
