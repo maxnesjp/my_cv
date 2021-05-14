@@ -273,7 +273,9 @@ googleCertificateBtn.addEventListener('click', () => {
   const pdf = document.createElement('div')
   pdf.classList.add('pdf')
   pdf.innerHTML = `
-  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" width="100%" height="${heightOfPdf}px" />
+  <object data="your_url_to_pdf" type="application/pdf">
+  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
+  </object>
   `
   coverBody.appendChild(pdf)
 })
@@ -290,7 +292,9 @@ googleCertificateA.addEventListener('click', () => {
   const pdf = document.createElement('div')
   pdf.classList.add('pdf')
   pdf.innerHTML = `
-  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" width="100%" height="${heightOfPdf}px" />
+  <object data="your_url_to_pdf" type="application/pdf">
+  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
+  </object>
   `
   coverBody.appendChild(pdf)
 })
@@ -306,7 +310,9 @@ udemyCertificateBtn.addEventListener('click', () => {
   const pdf = document.createElement('div')
   pdf.classList.add('pdf')
   pdf.innerHTML = `
-  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" width="100%" height="${heightOfPdf}px" />
+  <object data="your_url_to_pdf" type="application/pdf">
+  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
+  </object>
   `
   coverBody.appendChild(pdf)
 })
@@ -323,7 +329,9 @@ udemyCertificateA.addEventListener('click', () => {
   const pdf = document.createElement('div')
   pdf.classList.add('pdf')
   pdf.innerHTML = `
-  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" width="100%" height="${heightOfPdf}px" />
+  <object data="your_url_to_pdf" type="application/pdf">
+  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
+  </object>
   `
   coverBody.appendChild(pdf)
 })
