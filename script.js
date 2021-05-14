@@ -254,9 +254,42 @@ resumeButton.addEventListener('click', () => {
 
 // ------------------------------------------------------------------
 
-// <embed src="Coursera Google IT Support Certificate.pdf" width="800px" height="500" />
+// ---------------------------------CERTIFICATES---------------------------------
+const googleCertificateBtn = document.getElementById('google-certificate-btn')
+const udemyCertificateBtn = document.getElementById('udemy-certificates-btn')
+const coverBody = document.querySelector('.cover-body')
+
+googleCertificateBtn.addEventListener('click', () => {
+  body.style.overflowY = 'hidden'
+  document.documentElement.innerHTML.overflowY = 'hidden'
+  // body.setAttribute('scroll', 'no')
+  coverBody.style.visibility = 'visible'
+  const pdf = document.createElement('div')
+  pdf.classList.add('pdf')
+  pdf.innerHTML = `
+  <embed src="Coursera Google IT Support Certificate.pdf" width="100%" height="500px" />
+  `
+  coverBody.appendChild(pdf)
+})
+
+udemyCertificateBtn.addEventListener('click', () => {
+  coverBody.style.visibility = 'visible'
+  const pdf = document.createElement('div')
+  pdf.classList.add('pdf')
+  pdf.innerHTML = `
+  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf" width="100%" height="500px" />
+  `
+  coverBody.appendChild(pdf)
+})
+
+coverBody.addEventListener('click', () => {
+  coverBody.style.visibility = 'hidden'
+  const allPdfs = document.querySelectorAll('.pdf')
+  allPdfs.forEach((doc) => doc.remove())
+})
+//
 {
-  /* <embed src="Maxim_Nesterov_Udemy_Certificates.pdf" width="800px" height="500" /> */
+  /*  */
 }
 
 // ---------------------------------CYCLING---------------------------------
