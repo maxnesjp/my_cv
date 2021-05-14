@@ -681,13 +681,15 @@ img {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
-
+.certificate .title {
+  margin: 0;
+}
 .certificate .title a {
   font-size: 1.8rem;
   cursor: pointer;
   text-decoration: underline;
   color: #fff;
-  margin: 0 0 3%;
+  margin: 0;
   transition: font-size 0.45s ease-in-out;
 }
 
@@ -703,7 +705,7 @@ img {
 }
 
 @media (max-width: 1000px) {
-  .certificate .title {
+  .certificate .title a {
     font-size: 1.55wrem;
     margin: 0 0 1%;
   }
@@ -747,12 +749,12 @@ img {
   }
 
   .image-btn {
-    width: 36%;
+    width: 38%;
     min-width: 100px;
   }
   .certificate .description {
     height: auto;
-    width: 64%;
+    width: 62%;
     border: 0;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -768,7 +770,7 @@ img {
     width: 96%;
     transform: translate(-50%, -50%);
   }
-  .certificate .title {
+  .certificate .title a {
     font-size: 1.7rem;
     margin: 0 0 1%;
   }
@@ -784,7 +786,7 @@ img {
 }
 
 @media (max-width: 700px) {
-  .certificate .title {
+  .certificate .title a {
     font-size: 1.4rem;
     margin: 0 0 1%;
   }
@@ -800,7 +802,7 @@ img {
 }
 
 @media (max-width: 600px) {
-  .certificate .title {
+  .certificate .title a {
     font-size: 1.2rem;
     margin: 0 0 1%;
   }
@@ -816,7 +818,7 @@ img {
 }
 
 @media (max-width: 450px) {
-  .certificate .title {
+  .certificate .title a {
     font-size: 0.9rem;
     margin: 0 0 1%;
   }
@@ -832,18 +834,19 @@ img {
 }
 
 @media (max-width: 350px) {
-  .certificate .title {
-    font-size: 0.85rem;
+  .certificate .title a {
+    font-size: 0.8rem;
     margin: 0 0 1%;
+    line-height: normal;
   }
 
   .certificate .content {
-    font-size: 0.65rem;
-    margin: 1% 0;
+    font-size: 0.5rem;
+    margin: 0;
   }
 
   .certificate small {
-    font-size: 0.5rem;
+    font-size: 0.4rem;
   }
 }
 
