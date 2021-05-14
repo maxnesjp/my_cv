@@ -260,24 +260,35 @@ const udemyCertificateBtn = document.getElementById('udemy-certificates-btn')
 const coverBody = document.querySelector('.cover-body')
 
 googleCertificateBtn.addEventListener('click', () => {
-  body.style.overflowY = 'hidden'
-  document.documentElement.innerHTML.overflowY = 'hidden'
-  // body.setAttribute('scroll', 'no')
+  const windowWidth = $(window).width()
+  let heightOfPdf = 500
+  if (windowWidth > 1000) {
+    heightOfPdf = 800
+  } else if (windowWidth > 800) {
+    heightOfPdf = 600
+  }
   coverBody.style.visibility = 'visible'
   const pdf = document.createElement('div')
   pdf.classList.add('pdf')
   pdf.innerHTML = `
-  <embed src="Coursera Google IT Support Certificate.pdf" width="100%" height="500px" />
+  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" width="100%" height="${heightOfPdf}px" />
   `
   coverBody.appendChild(pdf)
 })
 
 udemyCertificateBtn.addEventListener('click', () => {
+  const windowWidth = $(window).width()
+  let heightOfPdf = 500
+  if (windowWidth > 1000) {
+    heightOfPdf = 800
+  } else if (windowWidth > 800) {
+    heightOfPdf = 600
+  }
   coverBody.style.visibility = 'visible'
   const pdf = document.createElement('div')
   pdf.classList.add('pdf')
   pdf.innerHTML = `
-  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf" width="100%" height="500px" />
+  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" width="100%" height="${heightOfPdf}px" />
   `
   coverBody.appendChild(pdf)
 })
