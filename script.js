@@ -47,13 +47,14 @@ function load() {
 
 window.onload = load
 const coverBody = document.querySelector('.cover-body')
+const loaderBody = document.getElementById('loader-body')
 document.onreadystatechange = function () {
   if (document.readyState !== 'complete') {
-    coverBody.style.visibility = 'hidden'
+    loaderBody.style.visibility = 'visible'
     document.querySelector('#loader').style.visibility = 'visible'
   } else {
     document.querySelector('#loader').style.display = 'none'
-    coverBody.style.visibility = 'visible'
+    loaderBody.style.visibility = 'hidden'
   }
 }
 
