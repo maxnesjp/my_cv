@@ -254,6 +254,11 @@ resumeButton.addEventListener('click', () => {
 
 // ------------------------------------------------------------------
 
+// <embed src="Coursera Google IT Support Certificate.pdf" width="800px" height="500" />
+{
+  /* <embed src="Maxim_Nesterov_Udemy_Certificates.pdf" width="800px" height="500" /> */
+}
+
 // ---------------------------------CYCLING---------------------------------
 
 // put all divs with class 'panel' in a node list or simply list
