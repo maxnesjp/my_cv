@@ -260,91 +260,81 @@ const googleCertificateBtn = document.getElementById('google-certificate-btn')
 const googleCertificateA = document.getElementById('google-a')
 const udemyCertificateBtn = document.getElementById('udemy-certificates-btn')
 const udemyCertificateA = document.getElementById('udemy-a')
+const pdfDiv = document.querySelector('.pdf-div')
 
 googleCertificateBtn.addEventListener('click', () => {
-  const windowWidth = $(window).width()
-  let heightOfPdf = 500
-  if (windowWidth > 1000) {
-    heightOfPdf = 800
-  } else if (windowWidth > 800) {
-    heightOfPdf = 600
-  }
+  const pdfDiv = document.createElement('div')
+  pdfDiv.classList.add('pdf-div')
+  coverBody.appendChild(pdfDiv)
   coverBody.style.visibility = 'visible'
-  const pdf = document.createElement('div')
-  pdf.classList.add('pdf')
-  pdf.innerHTML = `
-  <object data="your_url_to_pdf" type="application/pdf">
-  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
-  </object>
-  `
-  coverBody.appendChild(pdf)
+  ;(async () => {
+    window.Accusoft.PdfViewerControl.create({
+      sourceDocument: 'Coursera Google IT Support Certificate.pdf',
+      container: document.querySelector('.pdf-div'),
+    })
+  })()
 })
 
 googleCertificateA.addEventListener('click', () => {
-  const windowWidth = $(window).width()
-  let heightOfPdf = 500
-  if (windowWidth > 1000) {
-    heightOfPdf = 800
-  } else if (windowWidth > 800) {
-    heightOfPdf = 600
-  }
+  const pdfDiv = document.createElement('div')
+  pdfDiv.classList.add('pdf-div')
+  coverBody.appendChild(pdfDiv)
   coverBody.style.visibility = 'visible'
-  const pdf = document.createElement('div')
-  pdf.classList.add('pdf')
-  pdf.innerHTML = `
-  <object data="your_url_to_pdf" type="application/pdf">
-  <embed src="Coursera Google IT Support Certificate.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
-  </object>
-  `
-  coverBody.appendChild(pdf)
+  ;(async () => {
+    window.Accusoft.PdfViewerControl.create({
+      sourceDocument: 'Coursera Google IT Support Certificate.pdf',
+      container: document.querySelector('.pdf-div'),
+    })
+  })()
 })
+
 udemyCertificateBtn.addEventListener('click', () => {
-  const windowWidth = $(window).width()
-  let heightOfPdf = 500
-  if (windowWidth > 1000) {
-    heightOfPdf = 800
-  } else if (windowWidth > 800) {
-    heightOfPdf = 600
-  }
+  const pdfDiv = document.createElement('div')
+  pdfDiv.classList.add('pdf-div')
+  coverBody.appendChild(pdfDiv)
   coverBody.style.visibility = 'visible'
-  const pdf = document.createElement('div')
-  pdf.classList.add('pdf')
-  pdf.innerHTML = `
-  <object data="your_url_to_pdf" type="application/pdf">
-  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
-  </object>
-  `
-  coverBody.appendChild(pdf)
+  ;(async () => {
+    window.Accusoft.PdfViewerControl.create({
+      sourceDocument: 'Maxim_Nesterov_Udemy_Certificates.pdf',
+      container: document.querySelector('.pdf-div'),
+    })
+  })()
 })
 
 udemyCertificateA.addEventListener('click', () => {
-  const windowWidth = $(window).width()
-  let heightOfPdf = 500
-  if (windowWidth > 1000) {
-    heightOfPdf = 800
-  } else if (windowWidth > 800) {
-    heightOfPdf = 600
-  }
+  const pdfDiv = document.createElement('div')
+  pdfDiv.classList.add('pdf-div')
+  coverBody.appendChild(pdfDiv)
   coverBody.style.visibility = 'visible'
-  const pdf = document.createElement('div')
-  pdf.classList.add('pdf')
-  pdf.innerHTML = `
-  <object data="your_url_to_pdf" type="application/pdf">
-  <embed src="Maxim_Nesterov_Udemy_Certificates.pdf#view=Fit" type="application/pdf" width="100%" height="${heightOfPdf}px" />
-  </object>
-  `
-  coverBody.appendChild(pdf)
+  ;(async () => {
+    window.Accusoft.PdfViewerControl.create({
+      sourceDocument: 'Maxim_Nesterov_Udemy_Certificates.pdf',
+      container: document.querySelector('.pdf-div'),
+    })
+  })()
 })
+
+// udemyCertificateA.addEventListener('click', () => {
+//   const windowWidth = $(window).width()
+//   let heightOfPdf = 500
+//   if (windowWidth > 1000) {
+//     heightOfPdf = 800
+//   } else if (windowWidth > 800) {
+//     heightOfPdf = 600
+//   }
+//   coverBody.style.visibility = 'visible'
+//   window.Accusoft.PdfViewerControl.create({
+//           sourceDocument: '12+Rules+to+Learn+to+Code+eBook+[Updated+26.11.18].pdf',
+//           container: document.querySelector('.view')
+//         });
+//       })();})
+// })
 
 coverBody.addEventListener('click', () => {
   coverBody.style.visibility = 'hidden'
-  const allPdfs = document.querySelectorAll('.pdf')
+  const allPdfs = document.querySelectorAll('.pdf-div')
   allPdfs.forEach((doc) => doc.remove())
 })
-//
-{
-  /*  */
-}
 
 // ---------------------------------CYCLING---------------------------------
 
