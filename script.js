@@ -140,7 +140,6 @@ window.scroll({
 checkBoxes()
 
 function checkBoxes() {
-  console.log('scroll')
   // check if the last container (contact page) is shown to the user
   if (lastContainer.classList.contains('show')) {
     arrowDown.style.visibility = 'hidden'
