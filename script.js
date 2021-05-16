@@ -66,6 +66,7 @@ function load() {
     nav.style.transform = `translateY(-${position}%)`
     position = position - 4
   }
+  const triggerBottom = (window.innerHeight / 5) * 4
   boxes.forEach((box) => {
     const boxTop = box.getBoundingClientRect().top
     if (boxTop < triggerBottom) {
@@ -98,7 +99,6 @@ document.onreadystatechange = function () {
   if (document.readyState !== 'complete') {
     loaderBody.style.visibility = 'visible'
     document.querySelector('#loader').style.visibility = 'visible'
-    const triggerBottom = (window.innerHeight / 5) * 4
   } else {
     document.querySelector('#loader').style.display = 'none'
     loaderBody.style.visibility = 'hidden'
