@@ -2,18 +2,37 @@
 const toggle = document.getElementById('toggle')
 const nav = document.getElementById('nav')
 const header = document.querySelector('.header')
+const navA = document.querySelectorAll('.header a')
+
+navA.forEach((link) => {
+  link.addEventListener('mouseover', () => {
+    link.style.color = '#ffffff'
+    changeOpacity()
+    link.style.opacity = '1'
+    link.style.borderWidth = '3px'
+  })
+  link.addEventListener('mouseout', () => {
+    resetOpacity()
+  })
+})
+
+function changeOpacity() {
+  navA.forEach((link) => {
+    link.style.opacity = '0.1'
+  })
+}
+
+function resetOpacity() {
+  navA.forEach((link) => {
+    link.style.opacity = '1'
+    link.style.borderWidth = '1px'
+  })
+}
 
 toggle.addEventListener('click', () => {
   nav.classList.toggle('active')
   if (nav.classList.contains('active')) {
     nav.style.borderBottomRightRadius = '0px'
-    // setTimeout(() => {
-    //   const newHelloWorld = document.createElement('h3')
-    //   newHelloWorld.innerText = 'Hello, World'
-    //   newHelloWorld.classList.add('hello-world')
-    //   nav.appendChild(newHelloWorld)
-    //   nav.style.borderBottomRightRadius = '0px'
-    // }, 550)
   } else {
     setTimeout(() => {
       nav.style.borderBottomRightRadius = '30px'
@@ -26,6 +45,10 @@ function removeElement(className) {
   $(`.${className}`).remove()
 }
 
+// ------------------------------------------------------------------
+
+// ---------------------------------LOADER---------------------------------
+const boxes = document.querySelectorAll('.container')
 function load() {
   let opacity = 0
   let position = 100
@@ -43,6 +66,29 @@ function load() {
     nav.style.transform = `translateY(-${position}%)`
     position = position - 4
   }
+  boxes.forEach((box) => {
+    const boxTop = box.getBoundingClientRect().top
+    if (boxTop < triggerBottom) {
+      box.classList.add('show')
+      box.style.transform = 'translateX(0)'
+    }
+  })
+  // hide all containers
+  for (let i = 0; i < boxes.length; i++) {
+    const currentBox = boxes[i]
+    if (i % 2 === 0) {
+      currentBox.style.transform = 'translateX(400%)'
+    } else {
+      currentBox.style.transform = 'translateX(-400%)'
+    }
+  }
+  boxes.forEach((box) => {
+    const boxTop = box.getBoundingClientRect().top
+    if (boxTop < triggerBottom) {
+      box.classList.add('show')
+      box.style.transform = 'translateX(0)'
+    }
+  })
 }
 
 window.onload = load
@@ -52,6 +98,7 @@ document.onreadystatechange = function () {
   if (document.readyState !== 'complete') {
     loaderBody.style.visibility = 'visible'
     document.querySelector('#loader').style.visibility = 'visible'
+    const triggerBottom = (window.innerHeight / 5) * 4
   } else {
     document.querySelector('#loader').style.display = 'none'
     loaderBody.style.visibility = 'hidden'
@@ -63,7 +110,7 @@ document.onreadystatechange = function () {
 // ---------------------------------INTRO---------------------------------
 
 const childrenOfBoxes = []
-const boxes = document.querySelectorAll('.container')
+
 const lastContainer = document.getElementById('contact-container')
 const body = document.body
 const arrowDown = document.getElementById('arrow-down-a')
@@ -93,8 +140,8 @@ window.scroll({
 checkBoxes()
 
 function checkBoxes() {
+  console.log('scroll')
   // check if the last container (contact page) is shown to the user
-
   if (lastContainer.classList.contains('show')) {
     arrowDown.style.visibility = 'hidden'
     // make the arrow up visible
@@ -107,13 +154,13 @@ function checkBoxes() {
   }
 
   // when do we want the content to come in?
-  const triggerBottom = (window.innerHeight / 4) * 3
+  const triggerBottom = (window.innerHeight / 5) * 4
   boxes.forEach((box, index) => {
     // get the value of the top boundary of each box
     const boxTop = box.getBoundingClientRect().top
     if (boxTop < triggerBottom) {
       box.classList.add('show')
-      // box.style.transform = 'none'
+      box.style.transform = 'translateX(0)'
       setCorrectHref()
       const children = box.children[0].children
       setTimeout(() => {
@@ -314,34 +361,35 @@ udemyCertificateA.addEventListener('click', () => {
   })()
 })
 
-// udemyCertificateA.addEventListener('click', () => {
-//   const windowWidth = $(window).width()
-//   let heightOfPdf = 500
-//   if (windowWidth > 1000) {
-//     heightOfPdf = 800
-//   } else if (windowWidth > 800) {
-//     heightOfPdf = 600
-//   }
-//   coverBody.style.visibility = 'visible'
-//   window.Accusoft.PdfViewerControl.create({
-//           sourceDocument: '12+Rules+to+Learn+to+Code+eBook+[Updated+26.11.18].pdf',
-//           container: document.querySelector('.view')
-//         });
-//       })();})
-// })
-
 coverBody.addEventListener('click', () => {
   coverBody.style.visibility = 'hidden'
   const allPdfs = document.querySelectorAll('.pdf-div')
   allPdfs.forEach((doc) => doc.remove())
 })
 
+// ------------------------------------------------------------------
+
+// ---------------------------------SKILLS---------------------------------
+const skills = document.querySelectorAll('.skill')
+skills.forEach((skill) => {
+  const span = skill.querySelector('.nowrap')
+  const icon = skill.querySelector('.awesome')
+  icon.addEventListener('mouseover', () => {
+    span.style.textDecoration = 'underline'
+    span.style.textDecorationColor = '#ff7b54'
+  })
+  icon.addEventListener('mouseout', () => {
+    span.style.textDecoration = 'none'
+  })
+})
+
+// ------------------------------------------------------------------
+
 // ---------------------------------CYCLING---------------------------------
 
 // put all divs with class 'panel' in a node list or simply list
 const panelContainer = document.querySelector('.panelsContainer')
 const panels = document.querySelectorAll('.panelsContainer .panel')
-// let activePanel = document.querySelector('.panelsContainer .panel.active')
 let focusedPanel = document.querySelector('.cycling .focused')
 
 panels.forEach((panel) => {
@@ -367,6 +415,17 @@ function removeFocusedClasses() {
     panel.classList.remove('focused')
   })
 }
+
+const cyclingTitle = document.querySelector('.cycling h2')
+const titleSpan = cyclingTitle.querySelector('span')
+const titleIcon = cyclingTitle.querySelector('.awesome')
+titleIcon.addEventListener('mouseover', () => {
+  titleSpan.style.textDecoration = 'underline'
+  titleSpan.style.textDecorationColor = '#ff7b54'
+})
+titleIcon.addEventListener('mouseout', () => {
+  titleSpan.style.textDecoration = 'none'
+})
 
 // ------------------------------------------------------------------
 
@@ -400,7 +459,7 @@ textArea.addEventListener('focus', (event) => {
 })
 
 textArea.addEventListener('focusout', (event) => {
-  textAreaMsg.style.color = 'initial'
+  textAreaMsg.style.color = '#ffffff'
   textAreaMsg.style.borderBottomColor = 'initial'
 })
 
