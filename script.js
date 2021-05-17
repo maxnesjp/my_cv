@@ -24,6 +24,7 @@ function changeOpacity() {
 
 function resetOpacity() {
   navA.forEach((link) => {
+    link.style.color = 'var(--primary-text-color)'
     link.style.opacity = '1'
     link.style.borderWidth = '1px'
   })
@@ -308,57 +309,44 @@ const udemyCertificateBtn = document.getElementById('udemy-certificates-btn')
 const udemyCertificateA = document.getElementById('udemy-a')
 const pdfDiv = document.querySelector('.pdf-div')
 
-googleCertificateBtn.addEventListener('click', () => {
-  const pdfDiv = document.createElement('div')
-  pdfDiv.classList.add('pdf-div')
-  coverBody.appendChild(pdfDiv)
-  coverBody.style.visibility = 'visible'
-  ;(async () => {
-    window.Accusoft.PdfViewerControl.create({
-      sourceDocument: 'Coursera Google IT Support Certificate.pdf',
-      container: document.querySelector('.pdf-div'),
-    })
-  })()
+googleCertificateBtn.addEventListener('click', (event) => {
+  const source = 'Coursera Google IT Support Certificate.pdf'
+  createElement()
+  createCertificate(source)
+})
+googleCertificateA.addEventListener('click', (event) => {
+  const source = 'Coursera Google IT Support Certificate.pdf'
+  createElement()
+  createCertificate(source)
 })
 
-googleCertificateA.addEventListener('click', () => {
-  const pdfDiv = document.createElement('div')
-  pdfDiv.classList.add('pdf-div')
-  coverBody.appendChild(pdfDiv)
-  coverBody.style.visibility = 'visible'
-  ;(async () => {
-    window.Accusoft.PdfViewerControl.create({
-      sourceDocument: 'Coursera Google IT Support Certificate.pdf',
-      container: document.querySelector('.pdf-div'),
-    })
-  })()
+udemyCertificateBtn.addEventListener('click', (event) => {
+  const source = 'Maxim_Nesterov_Udemy_Certificates.pdf'
+  createElement()
+  createCertificate(source)
+})
+udemyCertificateA.addEventListener('click', (event) => {
+  const source = 'Maxim_Nesterov_Udemy_Certificates.pdf'
+  createElement()
+  createCertificate(source)
 })
 
-udemyCertificateBtn.addEventListener('click', () => {
+function createElement() {
   const pdfDiv = document.createElement('div')
   pdfDiv.classList.add('pdf-div')
   coverBody.appendChild(pdfDiv)
   coverBody.style.visibility = 'visible'
-  ;(async () => {
-    window.Accusoft.PdfViewerControl.create({
-      sourceDocument: 'Maxim_Nesterov_Udemy_Certificates.pdf',
-      container: document.querySelector('.pdf-div'),
-    })
-  })()
-})
+}
 
-udemyCertificateA.addEventListener('click', () => {
-  const pdfDiv = document.createElement('div')
-  pdfDiv.classList.add('pdf-div')
-  coverBody.appendChild(pdfDiv)
-  coverBody.style.visibility = 'visible'
+function createCertificate(src) {
+  console.log(1)
   ;(async () => {
     window.Accusoft.PdfViewerControl.create({
-      sourceDocument: 'Maxim_Nesterov_Udemy_Certificates.pdf',
+      sourceDocument: src,
       container: document.querySelector('.pdf-div'),
     })
   })()
-})
+}
 
 coverBody.addEventListener('click', () => {
   coverBody.style.visibility = 'hidden'
