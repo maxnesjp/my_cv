@@ -821,6 +821,9 @@ img {
 }
 
 @media (max-width: 800px) {
+  .certificate .title {
+    line-height: 1.35;
+  }
   .certificates-container {
     padding: 0 2%;
     width: 98%;
@@ -886,6 +889,9 @@ img {
 }
 
 @media (max-width: 700px) {
+  .certificate .title {
+    line-height: 1.25;
+  }
   .certificate .title a {
     font-size: 1.4rem;
     margin: 0 0 1%;
@@ -901,6 +907,9 @@ img {
 }
 
 @media (max-width: 600px) {
+  .certificate .title {
+    line-height: 0.9;
+  }
   .certificate .title a {
     font-size: 1.2rem;
   }
@@ -915,6 +924,10 @@ img {
 }
 
 @media (max-width: 450px) {
+  .certificate .title {
+    line-height: 0.75;
+    margin-bottom: 2%;
+  }
   .certificate .title a {
     font-size: 0.9rem;
     margin: 0 0 1%;
