@@ -107,6 +107,7 @@ a:hover {
 
 .title {
   color: var(--primary-title-color);
+  margin: 5px 0;
 }
 
 .title a {
@@ -481,6 +482,10 @@ nav .icon {
   .intro .text h2 {
     font-size: 2.3rem;
   }
+  .intro .text {
+    left: 50%;
+    top: 16%;
+  }
 }
 
 @media (min-width: 1400px) and (max-width: 1599px) {
@@ -491,6 +496,10 @@ nav .icon {
     font-size: 2.6rem;
     top: 18%;
   }
+  .intro .text {
+    left: 50%;
+    top: 16%;
+  }
 }
 
 @media (min-width: 1600px) {
@@ -500,6 +509,10 @@ nav .icon {
   .intro .text h2 {
     font-size: 3rem;
     top: 23%;
+  }
+  .intro .text {
+    left: 50%;
+    top: 14%;
   }
 }
 
@@ -1290,7 +1303,7 @@ img {
   width: 100%;
   padding: 10px 0;
   font-size: 18px;
-  color: var(--primary-text-color);
+  color: #ffffff;
   font-family: inherit;
   transition: border-bottom 0.7s ease;
 }
@@ -1299,7 +1312,7 @@ img {
 .form-control .textarea:focus {
   /* color: red; */
   outline: 0;
-  border-bottom-color: var(--btn-primary-color);
+  border-bottom-color: #ffffff;
 }
 
 .form-control label {
@@ -1322,12 +1335,12 @@ img {
 .form-control input:focus + label span,
 .form-control input:valid + label span,
 .form-control input:not(:placeholder-shown) + label span {
-  color: var(--btn-primary-color);
+  color: #ffffff;
   transform: translateY(-70%);
 }
 .form-control input:valid + label span,
 .form-control input:not(:placeholder-shown) + label span {
-  color: black;
+  color: var(--primary-text-color);
 }
 
 input:-webkit-autofill,
@@ -1342,7 +1355,7 @@ input:-webkit-autofill {
 
 .form-control input:focus + label span,
 .form-control input:valid + label span {
-  color: var(--btn-primary-color);
+  color: #ffffff;
   transform: translateY(-70%);
 }
 .form-control input:valid + label span {
@@ -1372,6 +1385,16 @@ textarea {
   padding: 1% 0;
   border-radius: 10px;
   margin-bottom: 3%;
+}
+
+.sayhi-container h2 {
+  margin: auto 8px;
+}
+
+@media (max-width: 600px) {
+  .sayhi-container h2 {
+    font-size: 1.4rem;
+  }
 }
 
 .sayhi-btn {
@@ -1425,7 +1448,7 @@ textarea {
 
 .mailtoui-modal-title {
   font-family: inherit;
-  color: var(--primary-text-color);
+  color: var(--primary-title-color);
 }
 
 .mailtoui-modal-close:focus,

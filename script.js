@@ -441,12 +441,12 @@ textArea.addEventListener('keyup', () => {
 
 // textArea change color on hover effect
 textArea.addEventListener('focus', (event) => {
-  textAreaMsg.style.color = '#44c767'
+  textAreaMsg.style.color = '#ffffff'
   textAreaMsg.style.borderBottomColor = '#44c767'
 })
 
 textArea.addEventListener('focusout', (event) => {
-  textAreaMsg.style.color = '#ffffff'
+  textAreaMsg.style.color = 'var(--primary-text-color)'
   textAreaMsg.style.borderBottomColor = 'initial'
 })
 
