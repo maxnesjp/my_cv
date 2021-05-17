@@ -263,7 +263,7 @@ nav ul {
   align-items: center;
   justify-content: space-around;
   margin-bottom: 0;
-  padding-top: 5%;
+  /* padding-top: 5%; */
 }
 nav ul li {
 }
