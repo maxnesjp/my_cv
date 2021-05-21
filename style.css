@@ -74,6 +74,7 @@ a {
 a:hover {
   /* font-style: italic; */
   color: #9fe6a0;
+  cursor: pointer;
 }
 
 .btn {
