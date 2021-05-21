@@ -67,30 +67,8 @@ function load() {
     nav.style.transform = `translateY(-${position}%)`
     position = position - 4
   }
-  const triggerBottom = (window.innerHeight / 5) * 4
-  boxes.forEach((box) => {
-    const boxTop = box.getBoundingClientRect().top
-    if (boxTop < triggerBottom) {
-      box.classList.add('show')
-      box.style.transform = 'translateX(0)'
-    }
-  })
-  // hide all containers
-  for (let i = 0; i < boxes.length; i++) {
-    const currentBox = boxes[i]
-    if (i % 2 === 0) {
-      currentBox.style.transform = 'translateX(400%)'
-    } else {
-      currentBox.style.transform = 'translateX(-400%)'
-    }
-  }
-  boxes.forEach((box) => {
-    const boxTop = box.getBoundingClientRect().top
-    if (boxTop < triggerBottom) {
-      box.classList.add('show')
-      box.style.transform = 'translateX(0)'
-    }
-  })
+
+  checkBoxes()
 }
 
 window.onload = load
@@ -100,9 +78,18 @@ document.onreadystatechange = function () {
   if (document.readyState !== 'complete') {
     loaderBody.style.visibility = 'visible'
     document.querySelector('#loader').style.visibility = 'visible'
+    for (let i = 0; i < boxes.length; i++) {
+      if (i % 2 === 0) {
+        boxes[i].style.transform = 'translateX(400%)'
+      } else {
+        boxes[i].style.transform = 'translateX(-400%)'
+      }
+    }
   } else {
     document.querySelector('#loader').style.display = 'none'
-    loaderBody.style.visibility = 'hidden'
+    setTimeout(() => {
+      loaderBody.style.visibility = 'hidden'
+    }, 375)
   }
 }
 
@@ -138,7 +125,6 @@ window.scroll({
   left: 0,
   behavior: 'smooth',
 })
-checkBoxes()
 
 function checkBoxes() {
   // check if the last container (contact page) is shown to the user
@@ -154,27 +140,38 @@ function checkBoxes() {
   }
 
   // when do we want the content to come in?
-  const triggerBottom = (window.innerHeight / 5) * 4
+
   boxes.forEach((box, index) => {
     // get the value of the top boundary of each box
     const boxTop = box.getBoundingClientRect().top
+    const triggerBottom = (window.innerHeight / 4) * 3
     if (boxTop < triggerBottom) {
+      if (!box.classList.contains('show')) {
+        box.style.transform = 'translateX(0)'
+      }
       box.classList.add('show')
-      box.style.transform = 'translateX(0)'
+
       setCorrectHref()
       const children = box.children[0].children
-      setTimeout(() => {
-        for (var i = 0; i < childrenOfBoxes[index].length; i++) {
-          if (childrenOfBoxes[index][i].state === 0) {
-            childrenOfBoxes[index][i].state = 1
-            const currentIndex = i
-            children[currentIndex].style.visiblity = 'visible'
-            children[currentIndex].classList.add('show')
-          }
+      for (var i = 0; i < childrenOfBoxes[index].length; i++) {
+        if (childrenOfBoxes[index][i].state === 0) {
+          childrenOfBoxes[index][i].state = 1
+          const currentIndex = i
+          children[currentIndex].style.visiblity = 'visible'
+          children[currentIndex].classList.add('show')
         }
-      }, 300)
+      }
     } else {
       box.classList.remove('show')
+      for (let i = 0; i < boxes.length; i++) {
+        if (!boxes[i].classList.contains('show')) {
+          if (i % 2 === 0) {
+            boxes[i].style.transform = 'translateX(600%)'
+          } else {
+            boxes[i].style.transform = 'translateX(-600%)'
+          }
+        }
+      }
       for (var i = 0; i < childrenOfBoxes[index].length; i++) {
         if (childrenOfBoxes[index][i].state === 1) {
           childrenOfBoxes[index][i].state = 0
@@ -183,6 +180,12 @@ function checkBoxes() {
 
           children[currentIndex].classList.remove('show')
         }
+      }
+    }
+    if (!boxes[index].classList.contains('show')) {
+      const childBox = boxes[i].children[0]
+      for (var i = 0; i < childBox.length; i++) {
+        childBox[i].classList.remove('show')
       }
     }
   })

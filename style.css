@@ -132,9 +132,10 @@ a:hover {
 #arrow-down {
   position: fixed;
   font-size: 5rem;
-  bottom: 10%;
-  right: 5%;
+  bottom: 6%;
+  right: 3%;
   color: #511281;
+  opacity: 0.875;
   z-index: 99;
   cursor: pointer;
   transform: rotate(0deg);
@@ -148,6 +149,31 @@ a:hover {
 #arrow-down-a {
   transition: visibility 0.5s ease-in;
 }
+
+@media (max-width: 350px) {
+  #arrow-down {
+    font-size: 3.25rem;
+    bottom: 5%;
+    right: 1%;
+  }
+}
+
+@media (max-width: 400px) {
+  #arrow-down {
+    font-size: 3.6rem;
+    bottom: 3%;
+    right: 3%;
+  }
+}
+
+@media (max-width: 500px) {
+  #arrow-down {
+    font-size: 4rem;
+    bottom: 2%;
+    right: 3%;
+  }
+}
+
 .nowrap {
   white-space: nowrap;
 }
@@ -375,6 +401,11 @@ nav .icon {
     font-size: 0.905rem;
   }
 }
+@media (max-width: 400px) {
+  nav ul a {
+    font-size: 0.705rem;
+  }
+}
 @media (min-width: 601px) and (max-width: 800px) {
   nav ul a {
     font-size: 1.1rem;
@@ -439,6 +470,17 @@ nav .icon {
   width: 100%;
   transition: width 0.3 ease-in-out;
 }
+
+.resume-button {
+  margin-top: 4%;
+}
+
+@media (max-width: 500px) {
+  .intro .title {
+    font-size: 3rem;
+  }
+}
+
 @media (min-width: 800px) {
   .myphoto {
     width: 75%;
@@ -460,6 +502,9 @@ nav .icon {
   }
   .intro .text h2 {
     font-size: 1.6rem;
+  }
+  .resume-button {
+    margin-top: 2%;
   }
 }
 
@@ -536,8 +581,16 @@ nav .icon {
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
   border-left: none;
   border-right: none;
-  transition: transform 0.4s ease;
+  transition: transform 1.3s ease;
 }
+
+/* .container:not([class^='show']):nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+.container:not([class^='show']):nth-of-type(odd) {
+  transform: translateX(400%);
+} */
 
 @media (max-width: 800px) {
   .container {
@@ -547,20 +600,23 @@ nav .icon {
 
 .child-container {
   visibility: hidden;
-  transform: translateX(1200%);
-  transition: transform 0.8s ease, visibility ease;
+  /* opacity: 0; */
+  transform: translateX(1000%);
+  /* transition-delay: 0.3s; */
+  transition: transform 2.5s ease, opacity 3.5s ease-in;
 }
 
 .child-container:nth-of-type(even) {
   /* even boxes - every other one */
   /* transition-delay: 1s; */
-  transform: translateX(-1200%);
+  transform: translateX(-1000%);
 }
 
 .child-container.show {
   /* move to the default position (center of the screen) */
   /* transition-delay: 1s; */
   visibility: visible;
+  /* opacity: 1; */
   transform: translateX(0);
 }
 /* ---------------------------------------------------------------- */
