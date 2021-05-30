@@ -80,9 +80,9 @@ document.onreadystatechange = function () {
     document.querySelector('#loader').style.visibility = 'visible'
     for (let i = 0; i < boxes.length; i++) {
       if (i % 2 === 0) {
-        boxes[i].style.transform = 'translateX(400%)'
+        boxes[i].style.transform = 'translateX(500%)'
       } else {
-        boxes[i].style.transform = 'translateX(-400%)'
+        boxes[i].style.transform = 'translateX(-500%)'
       }
     }
   } else {
@@ -119,51 +119,7 @@ boxes.forEach((box) => {
   childrenOfBoxes.push(listOfChildren)
 })
 
-const link1 = document.getElementById('link1')
-const link2 = document.getElementById('link2')
-const link3 = document.getElementById('link3')
-const link4 = document.getElementById('link4')
-
-// link1.addEventListener('click', function (e) {
-//   var desiredElement = document.getElementById('autobiography-container')
-//   console.log()
-//   var topPos = body.offsetTop
-//   // scroll to that element
-//   desiredElement.scrollTop = topPos
-//   return false
-// })
-
-// link2.addEventListener('click', function (e) {
-//   setTimeout(() => {
-//     var elmnt = document.getElementById('skills-container')
-//     elmnt.scrollIntoView()
-//   }, 3000)
-//   e.preventDefault()
-// })
-
-// link3.addEventListener('click', function (e) {
-//   var desiredElement = document.getElementById('certificates-container')
-//   console.log()
-//   var topPos = body.offsetTop
-//   // scroll to that element
-//   desiredElement.scrollTop = topPos
-//   return false
-// })
-
-// link4.addEventListener('click', function (e) {
-//   var desiredElement = document.getElementById('contact-container')
-//   console.log()
-//   var topPos = body.offsetTop
-//   // scroll to that element
-//   desiredElement.scrollTop = topPos
-//   return false
-// })
-;[link1, link2, link3, link4].forEach((link) => {
-  link.addEventListener('click', () => {
-    console.log(link)
-  })
-})
-
+// disable scroll event when clicking on a link in the NAVBAR; otherwise - unable scroll event
 $(document).ready(function () {
   var disable_scroll = false
   $(window).scroll(function (event) {
@@ -236,13 +192,12 @@ function checkBoxes() {
     // make the arrow up disappear
     arrowUp.style.visibility = 'initial'
   }
-  console.log('scroll')
   // when do we want the content to come in?
   setTimeout(() => {
     boxes.forEach((box, index) => {
       // get the value of the top boundary of each box
       const boxTop = box.getBoundingClientRect().top
-      const triggerBottom = (window.innerHeight / 10) * 6
+      const triggerBottom = (window.innerHeight / 10) * 7
       if (boxTop < triggerBottom) {
         if (!box.classList.contains('show')) {
           box.style.transform = 'translateX(0)'
@@ -264,9 +219,9 @@ function checkBoxes() {
         for (let i = 0; i < boxes.length; i++) {
           if (!boxes[i].classList.contains('show')) {
             if (i % 2 === 0) {
-              boxes[i].style.transform = 'translateX(600%)'
+              boxes[i].style.transform = 'translateX(500%)'
             } else {
-              boxes[i].style.transform = 'translateX(-600%)'
+              boxes[i].style.transform = 'translateX(-500%)'
             }
           }
         }

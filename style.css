@@ -404,7 +404,12 @@ nav .icon {
 }
 @media (max-width: 400px) {
   nav ul a {
-    font-size: 0.705rem;
+    font-size: 0.87rem;
+  }
+}
+@media (max-width: 350px) {
+  nav ul a {
+    font-size: 0.75rem;
   }
 }
 @media (min-width: 601px) and (max-width: 800px) {
